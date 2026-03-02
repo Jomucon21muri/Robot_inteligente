@@ -1,4 +1,18 @@
-# 📚 Recursos y Conocimientos Necesarios
+# 📚 Recursos y Conocimientos Necesarios - Nivel Doctoral
+
+## Resumen Ejecutivo
+
+La construcción de un robot humanoide es un proceso altamente complejo y multidisciplinario que requiere una combinación profunda de habilidades mecánicas, electrónicas y de programación. Este documento detalla los 12 pilares de conocimiento necesarios para la construcción exitosa de un robot humanoide desde cero, con referencias a las carpetas del proyecto donde se aplican y documentación técnica exhaustiva a nivel de investigación doctoral.
+
+## Introducción: Complejidad de la Robótica Humanoide
+
+Para empezar, se debe diseñar el esqueleto del robot, que debe ser lo suficientemente resistente para soportar su peso y permitir su movimiento natural. Luego, se debe instalar una serie de sensores y motores que permitan al robot ver, percibir y moverse de manera coordinada.
+
+Una vez que se ha construido el esqueleto y se han instalado los componentes electrónicos, se debe programar el robot para que pueda realizar tareas específicas. Esto puede incluir caminar, hablar, reconocer objetos y seguir instrucciones. La programación puede ser muy compleja y puede requerir la creación de algoritmos personalizados y arquitecturas de software robustas.
+
+Además de la construcción del robot en sí, también es importante considerar cómo se utilizará y qué tareas se le asignarán. Por ejemplo, algunos robots humanoides se utilizan en la atención médica para ayudar a los pacientes a recuperarse, mientras que otros se utilizan en la industria para realizar tareas peligrosas o repetitivas.
+
+En resumen, la construcción de un robot humanoide es un proceso complejo que requiere una combinación de habilidades mecánicas, electrónicas y de programación. El resultado final puede ser un robot capaz de realizar tareas impresionantes y mejorar la vida de las personas.
 
 ## Visión General
 

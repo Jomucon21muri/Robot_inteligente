@@ -1,10 +1,24 @@
-# 🤖 Inteligencia Artificial para Robots
+# 🤖 Inteligencia Artificial para Robots - Investigación Doctoral
 
-Este proyecto tiene como objetivo explorar, diseñar e implementar modelos de Inteligencia Artificial aplicados a la robótica, integrando todos los elementos de control necesarios para que los robots puedan percibir, razonar, decidir y actuar en entornos dinámicos.
+Este proyecto tiene como objetivo explorar, diseñar e implementar modelos de Inteligencia Artificial aplicados a la robótica humanoide, integrando todos los elementos de control necesarios para que los robots puedan percibir, razonar, decidir y actuar en entornos dinámicos.
 
 La IA aplicada a robots no solo permite que ejecuten tareas programadas, sino que aprendan, se adapten y mejoren con la experiencia, aumentando sus capacidades con el tiempo.
 
 Este trabajo constituye la base fundamental para **investigaciones de doctorado (PhD) centradas en la integración de la Inteligencia Artificial en robots de servicio**. El objetivo es avanzar en el desarrollo de sistemas robóticos autónomos capaces de operar eficientemente en entornos humanos, mejorando la interacción, adaptabilidad y rendimiento de los robots de servicio en aplicaciones del mundo real.
+
+## 📖 Sobre Este Proyecto
+
+### Complejidad de la Robótica Humanoide
+
+La construcción de un robot humanoide es un proceso complejo que requiere combinación profunda de habilidades mecánicas, electrónicas y de programación. Este proyecto documenta el desarrollo completo desde conceptos fundamentales hasta implementación física y evaluación experimental.
+
+**Alcance del proyecto**:
+1. **Diseño mecánico**: Esqueleto resistente con ~25-30 grados de libertad que permita movimiento natural
+2. **Electrónica**: sensores y motores integrados para percepción y control
+3. **Programación**: Software para control, reconocimiento de objetos y ejecución de tareas complejas
+4. **Inteligencia Artificial**: Capacidades de aprendizaje, adaptación y toma de decisiones autónomas
+
+Las aplicaciones incluyen asistencia médica, realización de tareas industriales peligrosas, y servicio en entornos humanos.
 
 ## Proyecto Principal: Robot Humanoide
 
@@ -28,6 +42,75 @@ Este repositorio documenta el desarrollo completo de un **robot humanoide desde 
   - Reconocimiento visual y facial
   - Interacción por voz (español)
   - Aprendizaje y adaptación
+
+## 📂 Estructura del Proyecto
+
+```
+IA_para_robotica/
+├── 00_Gestion_Proyecto/       # 📋 Gestión, planificación y metodología
+├── 01_Percepcion/              # 👁️ Sensores, fusión sensorial, filtrado
+├── 02_Localizacion_Mapeo/      # 🗺️ SLAM, odometría, mapeo
+├── 03_Planificacion/           # 🎯 Planificación de trayectorias
+├── 04_Control/                 # 🎮 Control de movimiento, cinemática
+├── 05_Aprendizaje_Maquina/     # 🧠 IA, ML, DL, RL
+├── 06_Vision/                  # 👀 Visión por computadora
+├── 07_Simulacion_Pruebas/      # 🔬 Gazebo, PyBullet, testing
+├── 08_Integracion_Hardware/    # 🔧 Mecánica, electrónica, materiales
+├── 09_Comunicaciones_Interfaces/ # 📡 Redes, APIs, interfaces
+├── 10_Datasets_Experimentos/   # 📊 Datos de entrenamiento
+├── 11_Herramientas_Utilidades/ # 🛠️ Scripts y utilidades
+└── 12_Etica_Seguridad/         # 🛡️ Seguridad, ética, normativas
+```
+
+## 📚 Documentación Técnica Doctoral
+
+Este proyecto incluye documentación técnica exhaustiva a nivel doctoral:
+
+### Fundamentos Teóricos y Prácticos
+
+**Hardware y Mecatrónica**:
+- [Fundamentos de Mecánica y Diseño Mecánico](08_Integracion_Hardware/fundamentos_mecanicos.md)
+  - Cinemática y dinámica de robots
+  - Diseño de articulaciones biomecánicas
+  - Modelado 3D y análisis FEA
+  - Selección de materiales y fabricación
+
+- [Fundamentos de Electrónica y Electricidad](08_Integracion_Hardware/fundamentos_electronicos.md)
+  - Circuitos y componentes
+  - Microcontroladores y protocolos de comunicación
+  - Gestión de energía y baterías
+  - Diseño de PCBs
+
+**Control y Programación**:
+- [Fundamentos de Programación y Control](04_Control/fundamentos_programacion_control.md)
+  - Lenguajes para robótica (C++, Python, ROS)
+  - Teoría de controlPID, LQR, MPC)
+  - Cinemática inversa y planificación de trayectorias
+  - Biomecánica y generación de marcha
+
+**Inteligencia Artificial**:
+- [Fundamentos de IA y Aprendizaje Automático](05_Aprendizaje_Maquina/fundamentos_ia_ml.md)
+  - Machine Learning (supervisado, no supervisado)
+  - Redes neuronales profundas (CNN, RNN)
+  - Aprendizaje por refuerzo (Q-Learning, DQN)
+  - Visión por computadora y NLP para robótica
+
+### 12 Pilares de Conocimiento
+
+Ver documentación completa en [recursos_conocimientos.md](00_Gestion_Proyecto/recursos_conocimientos.md):
+
+1. **Mecánica y Diseño Mecánico** → [08_Integracion_Hardware](08_Integracion_Hardware/)
+2. **Electrónica y Electricidad** → [08_Integracion_Hardware](08_Integracion_Hardware/)
+3. **Programación y Control** → [04_Control](04_Control/)
+4. **Mecatrónica** → [08_Integracion_Hardware](08_Integracion_Hardware/)
+5. **Diseño de Software** → [09_Comunicaciones_Interfaces](09_Comunicaciones_Interfaces/)
+6. **Inteligencia Artificial** → [05_Aprendizaje_Maquina](05_Aprendizaje_Maquina/)
+7. **Materiales y Fabricación** → [08_Integracion_Hardware](08_Integracion_Hardware/)
+8. **Baterías y Energía** → [08_Integracion_Hardware](08_Integracion_Hardware/)
+9. **Diseño Ergonómico y Biomecánica** → [04_Control](04_Control/)
+10. **Comunicación y Redes** → [09_Comunicaciones_Interfaces](09_Comunicaciones_Interfaces/)
+11. **Seguridad y Ética** → [12_Etica_Seguridad](12_Etica_Seguridad/)
+12. **Gestión de Proyectos** → [00_Gestion_Proyecto](00_Gestion_Proyecto/)
 
 ## 📂 Estructura del Proyecto
 
