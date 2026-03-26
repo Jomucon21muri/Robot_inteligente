@@ -1,714 +1,412 @@
-# 📋 Metodología del Proyecto
+# Metodología de desarrollo de prototipos robóticos
 
-## Visión General
+## Metodología aplicada
 
-Este documento describe la metodología de trabajo, procesos y mejores prácticas para el desarrollo exitoso del robot humanoide.
+**Modelo espiral iterativo con desarrollo ágil adaptado para robótica**
 
----
+El desarrollo del presente proyecto se fundamenta en un modelo espiral iterativo que integra elementos del desarrollo ágil (Scrum y Kanban), específicamente adaptado para el contexto de prototipos robóticos. Esta aproximación metodológica híbrida ha sido seleccionada por su capacidad de ofrecer:
 
-## 🎯 Filosofía del Proyecto
+- Gestión continua de riesgos técnicos (característica heredada del modelo espiral)
+- Iteraciones rápidas con entregas incrementales (principio fundamental de las metodologías ágiles)
+- Validación temprana con componentes físicos (requisito específico del desarrollo en robótica)
+- Flexibilidad para realizar ajustes estratégicos basados en hallazgos experimentales
 
-### Principios Fundamentales
+La metodología se estructura en cinco fases principales —conceptualización, diseño, implementación, integración y pruebas, y evaluación— que se ejecutan de forma iterativa en ciclos de desarrollo de una a dos semanas.
 
-1. **Iteración continua**: Construir → Probar → Aprender → Mejorar
-2. **Documentación activa**: Documentar mientras se desarrolla, no después
-3. **Modularidad**: Componentes independientes y reutilizables
-4. **Pruebas constantes**: Validar temprano y frecuentemente
-5. **Seguridad primero**: Nunca comprometer la seguridad por rapidez
+## Introducción
 
----
+La naturaleza multidisciplinaria del desarrollo de sistemas robóticos inteligentes demanda una metodología que equilibre el rigor de la ingeniería con la flexibilidad necesaria para la investigación aplicada. Este documento establece el marco metodológico para el diseño, desarrollo y validación de prototipos robóticos con integración de inteligencia artificial.
 
-## 🔄 Ciclo de Desarrollo
+El enfoque propuesto combina lo mejor de diversos paradigmas: la gestión de riesgos del modelo espiral, la adaptabilidad de las metodologías ágiles, y las prácticas específicas de validación incremental que caracterizan al desarrollo de sistemas ciber-físicos. Esta síntesis metodológica responde a las particularidades del dominio, donde la teoría debe validarse constantemente con el comportamiento real del hardware.
 
-### Modelo Iterativo
+## Modelo de desarrollo
+
+### Modelo espiral iterativo
+
+El modelo espiral, propuesto originalmente por Boehm (1988), se caracteriza por ciclos de desarrollo que incorporan análisis de riesgos en cada iteración. Para el contexto de prototipos robóticos, este modelo ha sido adaptado para incluir:
+
+- Ciclos iterativos de corta duración (sprints de una a dos semanas)
+- Evaluación continua de riesgos técnicos y de integración
+- Validación incremental con componentes de hardware
+- Refinamiento progresivo tanto de software como de elementos mecánicos
 
 ```
-┌─────────────────────────────────────────┐
-│                                         │
-│    1. Planificar                        │
-│    ↓                                    │
-│    2. Diseñar                           │
-│    ↓                                    │
-│    3. Implementar                       │
-│    ↓                                    │
-│    4. Probar                            │
-│    ↓                                    │
-│    5. Documentar ──→ Lecciones          │
-│    ↓                Aprendidas          │
-│    Revisar y Ajustar                    │
-│                                         │
-└─────────────────────────────────────────┘
+        Planificación
+              ↓
+    ┌─────────────────────┐
+    │                     │
+Evaluar ←          → Diseñar
+Riesgos              Solución
+    │                     │
+    └─────────────────────┘
+              ↓
+    Implementar y Probar
+              ↓
+        [Iteración] ──→ Siguiente ciclo
 ```
 
-### Sprints Semanales
-
-**Estructura de una semana tipo**:
-
-1. **Lunes**: Planificación y revisión
-   - Revisar sprint anterior
-   - Definir objetivos de la semana
-   - Identificar recursos necesarios
-
-2. **Martes-Jueves**: Ejecución
-   - Desarrollo activo
-   - Construcción
-   - Pruebas incrementales
-
-3. **Viernes**: Integración y cierre
-   - Integrar componentes
-   - Pruebas de sistema
-   - Documentación de la semana
-   - Retrospectiva
-
----
-
-## 📝 Gestión de Tareas
-
-### Sistema de Priorización
-
-**MoSCoW**:
-- **M**ust have (Debe tener): Requisitos críticos
-- **S**hould have (Debería tener): Importantes pero no críticos
-- **C**ould have (Podría tener): Deseables
-- **W**on't have (No tendrá): Fuera de alcance
-
-
-### Uso de GitHub/Git
-
-**Estructura de branches**:
-```
-main
-├── develop
-│   ├── feature/inverse-kinematics
-│   ├── feature/sensor-integration
-│   └── bugfix/motor-calibration
-└── hotfix/emergency-stop
-```
-
-**Commits semánticos**:
-```bash
-git commit -m "feat: Add inverse kinematics solver"
-git commit -m "fix: Correct servo angle calculation"
-git commit -m "docs: Update control module README"
-git commit -m "test: Add unit tests for Joint class"
-git commit -m "refactor: Optimize PID controller"
-```
-
-**Prefijos**:
-- `feat`: Nueva funcionalidad
-- `fix`: Corrección de bug
-- `docs`: Documentación
-- `test`: Pruebas
-- `refactor`: Refactorización
-- `style`: Formato (no afecta código)
-- `chore`: Mantenimiento
-
----
-
-## 🧪 Estrategia de Pruebas
-
-### Niveles de Prueba
-
-**1. Pruebas Unitarias**
-- Funciones y clases individuales
-- Framework: `unittest`, `pytest`
-
-```python
-# test_joint.py
-import unittest
-from robot.joint import Joint
-
-class TestJoint(unittest.TestCase):
-    def setUp(self):
-        self.joint = Joint(name="elbow", min_angle=-90, max_angle=90)
-    
-    def test_init(self):
-        self.assertEqual(self.joint.name, "elbow")
-        self.assertEqual(self.joint.current_angle, 0)
-    
-    def test_move_within_limits(self):
-        result = self.joint.move_to(45)
-        self.assertTrue(result)
-        self.assertEqual(self.joint.current_angle, 45)
-    
-    def test_move_exceeds_limit(self):
-        result = self.joint.move_to(100)
-        self.assertFalse(result)
-        self.assertEqual(self.joint.current_angle, 0)  # No cambió
-
-if __name__ == '__main__':
-    unittest.main()
-```
-
-**2. Pruebas de Integración**
-- Múltiples componentes trabajando juntos
-- Ejemplo: Sensor → Procesamiento → Actuador
-
-**3. Pruebas de Sistema**
-- Robot completo
-- Escenarios realistas
-
-**4. Pruebas de Aceptación**
-- Cumple requisitos del usuario
-- Casos de uso completos
-
-### Cobertura de Código
-
-**Objetivo**: ≥80% de cobertura
-
-```bash
-# Ejecutar con cobertura
-pytest --cov=robot --cov-report=html tests/
-
-# Ver reporte
-open htmlcov/index.html
-```
-
-### Pruebas de Hardware
-
-**Checklist pre-prueba**:
-- [ ] Batería cargada y conectada
-- [ ] Todos los cables verificados
-- [ ] E-stop accesible y funcional
-- [ ] Área de trabajo despejada
-- [ ] Logs activados
-
-**Progresión**:
-1. **Banco de pruebas**: Componentes fijos
-2. **Movimientos limitados**: Articulación por articulación
-3. **Secuencias simples**: Movimientos coordinados
-4. **Autonomía parcial**: Con supervisión
-5. **Autonomía completa**: Sin intervención
-
----
-
-## 📚 Documentación
-
-### Tipos de Documentación
-
-**1. README por Carpeta**
-- Propósito del módulo
-- Cómo usar
-- Ejemplos
-- Dependencias
-
-**2. Docstrings en Código**
-```python
-def calculate_inverse_kinematics(target_position, robot_model):
-    """
-    Calcula ángulos articulares para alcanzar posición objetivo.
-    
-    Utiliza método numérico basado en Jacobiano con damped least squares
-    para evitar singularidades.
-    
-    Args:
-        target_position (np.ndarray): Posición 3D objetivo [x, y, z] en metros
-        robot_model (RobotModel): Modelo cinemático del robot
-        
-    Returns:
-        np.ndarray: Ángulos articulares en radianes, shape (n_joints,)
-        
-    Raises:
-        IKConvergenceError: Si no converge en max_iterations
-        ValueError: Si target_position fuera de workspace
-        
-    Example:
-        >>> robot = RobotModel()
-        >>> target = np.array([0.3, 0.2, 0.5])
-        >>> angles = calculate_inverse_kinematics(target, robot)
-        >>> print(angles)
-        array([0.52, -0.78, 1.23, 0.45, -0.32, 0.67])
-        
-    Note:
-        Implementación basada en:
-        Buss, S. R. (2004). "Introduction to inverse kinematics with jacobian 
-        transpose, pseudoinverse and damped least squares methods."
-    """
-    # Implementación...
-```
-
-**3. Wiki del Proyecto**
-- Guías de configuración
-- Troubleshooting
-- FAQs
-- Tutoriales
-
-**4. Diagramas**
-- Arquitectura de software
-- Diagramas de flujo
-- Esquemas eléctricos
-- Diagramas UML
-
-**Herramientas**:
-- Mermaid: Diagramas en markdown
-- draw.io: Diagramas generales
-- Fritzing: Esquemas electrónicos
-- PlantUML: UML automatizado
-
----
-
-## 🔍 Code Review
-
-### Proceso
-
-1. **Crear Pull Request**
-   - Descripción clara de cambios
-   - Referenciar issue relacionado
-   - Screenshots/videos si aplica
-
-2. **Auto-revisión**
-   - Revisar propios cambios
-   - Ejecutar tests localmente
-   - Verificar estilo de código
-
-3. **Revisión de Pares** (si hay equipo)
-   - Al menos 1 aprobación
-   - Comentarios constructivos
-
-4. **Merge**
-   - Squash commits si hay muchos pequeños
-   - Mensaje descriptivo
-
-### Checklist de Code Review
-
-**Funcionalidad**:
-- [ ] ¿Hace lo que se supone?
-- [ ] ¿Maneja casos edge?
-- [ ] ¿Maneja errores apropiadamente?
-
-**Código**:
-- [ ] ¿Es legible?
-- [ ] ¿Sigue convenciones (PEP 8 para Python)?
-- [ ] ¿Está documentado?
-- [ ] ¿DRY (Don't Repeat Yourself)?
-
-**Pruebas**:
-- [ ] ¿Hay tests?
-- [ ] ¿Tests pasan?
-- [ ] ¿Cobertura adecuada?
-
-**Seguridad**:
-- [ ] ¿Validación de inputs?
-- [ ] ¿Sin credenciales hardcodeadas?
-- [ ] ¿Manejo seguro de datos?
-
----
-
-## 🐛 Debugging y Troubleshooting
-
-### Estrategia de Debugging
-
-**1. Reproducir**
-- Aislar el problema
-- Crear caso de prueba mínimo
-
-**2. Investigar**
-- Revisar logs
-- Usar debugger (pdb, gdb)
-- Añadir prints estratégicos
-
-**3. Formular hipótesis**
-- ¿Qué podría estar causando esto?
-
-**4. Probar**
-- Verificar hipótesis
-- Iterar
-
-**5. Documentar**
-- Registrar solución
-- Actualizar docs/troubleshooting
-
-### Herramientas de Debugging
-
-**Python**:
-```python
-import pdb
-
-def problematic_function(x):
-    pdb.set_trace()  # Breakpoint
-    result = some_calculation(x)
-    return result
-```
-
-**ROS**:
-```bash
-# Logs
-rqt_console
-
-# Visualización
-rqt_graph  # Grafo de nodos
-rqt_plot   # Plotting de topics
-
-# Debugging
-rosrun --prefix 'gdb -ex run --args' package_name node_name
-```
-
----
-
-## 📊 Métricas y KPIs
-
-### Métricas de Desarrollo
-
-**Velocity** (Velocidad):
-- Tareas completadas por sprint
-- Story points (si se usan)
-
-**Burndown Chart**:
-```
-Tareas
-  │
-10│●
-  │ ●
- 8│   ●●
-  │     ●●
- 6│       ●
-  │         ●●
- 4│           ●
-  │             ●
- 2│               ●
-  │                 ●
- 0└───────────────────────
-   L M M J V L M M J V
-      Sprint Days
-```
-
-### Métricas de Calidad
-
-- **Test coverage**: % código cubierto
-- **Bugs encontrados vs. resueltos**
-- **Tiempo medio de resolución de bugs**
-- **Deuda técnica**: TODOs, FIXMEs
-
-### Métricas del Robot
-
-- **Uptime**: Tiempo operativo sin fallos
-- **MTBF** (Mean Time Between Failures)
-- **Tasa de éxito de tareas**
-- **Eficiencia energética**: Tareas por Wh
-
----
-
-## 🔐 Seguridad en Desarrollo
-
-### Prácticas Seguras
-
-**1. No commits de secretos**
-```bash
-# .gitignore
-*.key
-*.pem
-secrets.yaml
-config_private.py
-```
-
-**2. Usar variables de entorno**
-```python
-import os
-
-API_KEY = os.environ.get('ROBOT_API_KEY')
-if not API_KEY:
-    raise ValueError("API_KEY no configurada")
-```
-
-**3. Dependencias actualizadas**
-```bash
-# Verificar vulnerabilidades
-pip install safety
-safety check
-
-# Actualizar dependencias
-pip list --outdated
-```
-
----
-
-## 🤝 Colaboración (si hay equipo)
-
-### Comunicación
-
-**Daily Standup** (5-10 min):
-1. ¿Qué hice ayer?
-2. ¿Qué haré hoy?
-3. ¿Hay bloqueos?
-
-**Reunión Semanal** (30-60 min):
-- Revisión de sprint
-- Planificación siguiente
-- Discusión técnica
-
-**Canales**:
-- Slack/Discord: Chat rápido
-- GitHub Issues: Tareas y bugs
-- Email: Comunicaciones formales
-- Video: Reuniones síncronas
-
-### Resolución de Conflictos
-
-**Técnica**:
-1. Escuchar todas las perspectivas
-2. Identificar el objetivo común
-3. Evaluar opciones objetivamente
-4. Decidir (por consenso o líder)
-5. Documentar decisión (ADR)
-
----
-
-## 🎓 Aprendizaje Continuo
-
-### Tiempo para Aprender
-
-**Regla 80/20**:
-- 80% implementación
-- 20% aprendizaje/investigación
-
-### Recursos de Aprendizaje
-
-**Al encontrar problema**:
-1. Documentación oficial
-2. Stack Overflow
-3. Papers académicos (si es avanzado)
-4. Tutoriales/blogs
-5. Preguntar en comunidades
-
-### Registro de Aprendizajes
-
-**TIL (Today I Learned)**:
-```markdown
-## 2026-02-27
-
-### Problema
-Servomotores vibrando en posición estacionaria.
-
-### Aprendido
-- Zona muerta (deadband) en PID ayuda a estabilizar
-- Valor típico: ±1-2° para servos
-- Implementación:
-  ```python
-  if abs(error) < DEADBAND:
-      output = 0
-  ```
-
-### Referencias
-- https://example.com/pid-tuning-guide
-```
-
----
-
-## 🔄 Mejora Continua
+La estructura cíclica permite detectar problemas de manera temprana y ajustar el rumbo del proyecto sin comprometer significativamente los recursos invertidos. Cada iteración completa produce un incremento funcional del prototipo que puede ser demostrado y evaluado.
+
+### Principios metodológicos fundamentales
+
+La metodología se sustenta en cinco principios rectores que guían todas las decisiones de desarrollo:
+
+**Iteración rápida.** Los ciclos de desarrollo se mantienen deliberadamente cortos (una a dos semanas) para facilitar la retroalimentación frecuente y permitir ajustes tempranos en la dirección del proyecto.
+
+**Validación temprana.** Dada la complejidad de los sistemas ciber-físicos, es fundamental probar con hardware real lo antes posible. Las simulaciones son útiles pero insuficientes; el comportamiento emergente del sistema completo solo puede observarse en condiciones reales.
+
+**Evolución modular.** El desarrollo se estructura por subsistemas independientes que pueden evolucionar en paralelo. Esta modularidad reduce el acoplamiento y permite que múltiples aspectos del prototipo se desarrollen simultáneamente.
+
+**Gestión proactiva de riesgos.** Los riesgos técnicos se identifican, documentan y mitigan de manera continua. Cada iteración incluye una evaluación explícita de los riesgos emergentes y del estado de los riesgos previamente identificados.
+
+**Documentación paralela.** La documentación se genera durante el proceso de desarrollo, no como una actividad posterior. Esto asegura mayor precisión y evita la pérdida de conocimiento tácito.
+
+## Fases del desarrollo
+
+El proceso de desarrollo se articula en cinco fases claramente diferenciadas. Aunque se presentan de manera secuencial para facilitar su comprensión, en la práctica se ejecutan de forma iterativa, regresando a fases anteriores según sea necesario para refinar aspectos específicos del prototipo.
+
+### Fase 1: Conceptualización y requisitos
+
+La primera fase establece los cimientos conceptuales del proyecto. Su objetivo principal es definir con claridad qué se construirá y por qué. Esta fase responde a la pregunta fundamental de investigación y establece los límites del prototipo.
+
+**Actividades principales:**
+
+Durante esta fase se lleva a cabo la identificación de la necesidad o problema que el prototipo abordará. Se definen tanto los requisitos funcionales (qué debe hacer el sistema) como los no funcionales (restricciones de desempeño, seguridad, consumo energético, entre otros). Es crucial establecer criterios de éxito medibles que permitan evaluar objetivamente si el prototipo cumple su propósito. 
+
+También se realiza una evaluación inicial de viabilidad técnica, considerando los recursos disponibles (materiales, tiempo, conocimiento) y las limitaciones conocidas. Finalmente, se define el alcance mínimo viable del prototipo (MVP, por sus siglas en inglés), identificando qué funcionalidades son esenciales para una primera versión funcional.
+
+**Productos entregables:**
+
+- Documento de requisitos del sistema
+- Casos de uso principales con sus escenarios de operación
+- Lista de restricciones técnicas y limitaciones conocidas
+- Criterios de aceptación medibles
+
+### Fase 2: Diseño del sistema
+
+Esta fase traduce los requisitos abstractos en especificaciones técnicas concretas. El objetivo es diseñar la arquitectura completa del prototipo, tanto en sus aspectos físicos como computacionales.
+
+**Actividades principales:**
+
+Se diseña la arquitectura de hardware, seleccionando y especificando sensores, actuadores, controladores y estructuras mecánicas. En paralelo, se desarrolla la arquitectura de software, definiendo los módulos principales, sus interfaces, y los flujos de datos entre componentes.
+
+La selección de componentes y tecnologías se basa en un análisis que equilibra capacidades técnicas, disponibilidad, costo y compatibilidad con el ecosistema de desarrollo. Para los algoritmos críticos del sistema (por ejemplo, localización, planificación de trayectorias, o reconocimiento de objetos), se diseñan las aproximaciones técnicas a emplear. import
+
+Un elemento fundamental de esta fase es el análisis de riesgos técnicos, donde se identifican posibles problemas de implementación, integración o desempeño, estableciendo estrategias de mitigación para cada uno.
+
+**Productos entregables:**
+
+- Diagramas de arquitectura del sistema (vistas lógica, física y de despliegue)
+- Especificaciones técnicas detalladas de componentes
+- Diagramas de flujo de los algoritmos principales
+- Lista de materiales (bill of materials, BOM)
+- Matriz de riesgos con estrategias de mitigación
+
+### Fase 3: Implementación incremental
+
+La implementación se aborda de manera modular e incremental. En lugar de construir el sistema completo de una vez, se desarrollan subsistemas independientes que gradualmente se integran.
+
+**Enfoque de desarrollo:**
+
+El desarrollo se organiza por subsistemas que pueden evolucionar en paralelo. Los subsistemas típicos en un robot inteligente incluyen:
+
+- **Percepción:** Adquisición y procesamiento de datos sensoriales
+- **Cognición:** Algoritmos de toma de decisiones, planificación y aprendizaje
+- **Actuación:** Control de motores, manipuladores y otros efectores
+- **Integración:** Middleware de comunicación y coordinación entre subsistemas
+
+**Estructura de los sprints de desarrollo:**
+
+Cada sprint tiene una duración de una a dos semanas y busca producir un incremento funcional demostrable. La estructura semanal típica incluye:
+
+- **Inicio de sprint:** Planificación detallada, asignación de tareas y definición de objetivos específicos
+- **Desarrollo:** Implementación de funcionalidades y pruebas unitarias continuas
+- **Integración:** Ensamblaje de componentes nuevos con el sistema existente
+- **Validación:** Pruebas del subsistema completo
+- **Cierre:** Retrospectiva del sprint y documentación de lecciones aprendidas
+
+**Productos entregables por sprint:**
+
+- Código fuente funcional y documentado
+- Suite de pruebas unitarias y de integración
+- Demostración del incremento funcional
+- Documento de lecciones aprendidas
+
+### Fase 4: Integración y pruebas
+
+Esta fase se centra en la validación del sistema completo. Mientras que las pruebas unitarias se realizan continuamente durante la implementación, aquí se ejecutan pruebas de sistema que evalúan el comportamiento integrado del prototipo.
+
+**Niveles de prueba:**
+
+Las pruebas se organizan en una jerarquía que va desde componentes individuales hasta el sistema completo operando en su entorno objetivo:
+
+1. **Pruebas unitarias:** Verificación de componentes individuales aislados
+2. **Pruebas de integración:** Validación de interfaces entre subsistemas
+3. **Pruebas de sistema:** Evaluación del robot completo en entorno controlado
+4. **Pruebas de campo:** Operación en escenarios reales o simulados realistas
+5. **Pruebas de aceptación:** Validación formal contra requisitos establecidos
+
+**Progresión segura con hardware:**
+
+Dada la naturaleza física de los sistemas robóticos, es fundamental seguir una progresión gradual en las pruebas con hardware:
+
+1. Pruebas en banco de trabajo con componentes fijos y movimiento restringido
+2. Movimientos individuales de cada actuador con límites de seguridad activos
+3. Secuencias coordinadas de movimiento bajo supervisión continua
+4. Operación autónoma en entorno controlado y delimitado
+5. Validación en el entorno objetivo con supervisión reducida
+
+**Productos entregables:**
+
+- Plan de pruebas detallado con casos de prueba específicos
+- Registro de ejecución de casos de prueba con resultados
+- Reporte de defectos identificados y su resolución
+- Métricas de desempeño del sistema
+
+### Fase 5: Evaluación y refinamiento
+
+La última fase de cada ciclo iterativo se dedica al análisis crítico de los resultados obtenidos y a la planificación de mejoras para la siguiente iteración.
+
+**Actividades principales:**
+
+Se realiza un análisis exhaustivo de las métricas de desempeño recolectadas durante las pruebas, comparándolas con los criterios de éxito establecidos en la fase de conceptualización. Se identifican tanto los aspectos que cumplieron las expectativas como aquellos que requieren mejora.
+
+Basándose en este análisis, se toma una decisión go/no-go para continuar con una siguiente iteración. Si se decide continuar, se elabora una lista priorizada de mejoras y, si es necesario, se actualizan los requisitos del sistema para reflejar lo aprendido durante el ciclo.
+
+**Productos entregables:**
+
+- Reporte de evaluación con análisis de resultados
+- Lista priorizada de mejoras para la siguiente iteración
+- Plan de trabajo para el siguiente ciclo
+- Documentación técnica actualizada
+
+## Gestión de tareas y priorización
+
+La gestión eficiente de tareas es fundamental para mantener el progreso del proyecto y asegurar que los recursos limitados se inviertan en las funcionalidades más importantes.
+
+### Sistema de priorización MoSCoW
+
+Para la priorización de requisitos y tareas se emplea el método MoSCoW, ampliamente utilizado en gestión de proyectos ágiles. Este método clasifica los elementos en cuatro categorías:
+
+- **Must have (debe tener):** Requisitos críticos sin los cuales el prototipo no cumple su propósito fundamental. Estos elementos definen la funcionalidad mínima viable.
+
+- **Should have (debería tener):** Elementos importantes que agregan valor significativo pero cuya ausencia no impide la operación básica del prototipo.
+
+- **Could have (podría tener):** Mejoras deseables que se implementarán si el tiempo y los recursos lo permiten.
+
+- **Won't have (no tendrá):** Elementos explícitamente fuera del alcance de la iteración actual, pero que podrían considerarse en el futuro.
+
+### Gestión del backlog de desarrollo
+
+El backlog es una lista priorizada y dinámica de todas las tareas, funcionalidades y mejoras pendientes. Su gestión adecuada es crucial para el flujo de trabajo. Los criterios para priorizar elementos en el backlog incluyen:
+
+- **Impacto en funcionalidad crítica:** Tareas que afectan la capacidad del prototipo de cumplir sus requisitos fundamentales reciben mayor prioridad.
+
+- **Dependencias técnicas:** Se priorizan tareas que desbloquean otras actividades.
+
+- **Nivel de riesgo e incertidumbre:** Elementos con alto riesgo técnico se abordan temprano para validar su viabilidad.
+
+- **Valor para validación del concepto:** Se favorecen tareas que permiten demostrar y validar aspectos críticos de la hipótesis de investigación.
+
+## Gestión de riesgos
+
+La gestión proactiva de riesgos es uno de los pilares de la metodología espiral. En el contexto de robótica, donde múltiples dominios técnicos interactúan, la identificación temprana y mitigación de riesgos puede significar la diferencia entre el éxito y el fracaso del proyecto.
+
+### Identificación de riesgos
+
+Los riesgos en proyectos de robótica pueden categorizarse en cinco dimensiones principales:
+
+**Riesgos técnicos:** Incluyen la viabilidad de algoritmos, limitaciones de procesamiento computacional, restricciones de los sensores, y capacidades de los actuadores. Estos riesgos a menudo se descubren durante la implementación cuando la teoría se confronta con la realidad física.
+
+**Riesgos de integración:** La integración de componentes de diferentes fabricantes o paradigmas de programación puede presentar incompatibilidades imprevistas. Los problemas de sincronización, formatos de datos inconsistentes, y latencias inesperadas son ejemplos comunes.
+
+**Riesgos de seguridad:** Los sistemas robóticos pueden causar daño físico si fallan. Esto incluye desde movimientos inesperados hasta fallas en mecanismos de parada de emergencia.
+
+**Riesgos de recursos:** La disponibilidad limitada de componentes, restricciones presupuestarias, o falta de tiempo pueden comprometer el alcance del proyecto.
+
+**Riesgos de conocimiento:** Tecnologías nuevas o poco familiares pueden requerir más tiempo de aprendizaje del estimado inicialmente.
+
+### Análisis y mitigación de riesgos
+
+Cada riesgo identificado se evalúa según dos dimensiones: probabilidad de ocurrencia e impacto potencial. Esta evaluación permite clasificar los riesgos y asignar estrategias de respuesta apropiadas:
+
+| Probabilidad / Impacto | Bajo | Medio | Alto |
+|------------------------|------|-------|------|
+| Alta | Monitorear | Mitigar | Mitigar con urgencia |
+| Media | Aceptar | Monitorear | Mitigar |
+| Baja | Aceptar | Aceptar | Monitorear |
+
+Las estrategias de respuesta a riesgos incluyen:
+
+**Evitar:** Modificar el diseño del sistema para eliminar completamente el riesgo. Por ejemplo, cambiar un sensor problemático por uno de tecnología diferente.
+
+**Transferir:** Utilizar soluciones probadas y maduras, como bibliotecas de software bien establecidas o componentes comerciales certificados.
+
+**Mitigar:** Reducir la probabilidad o el impacto del riesgo mediante prototipos rápidos, pruebas tempranas, o implementación de redundancias.
+
+**Aceptar:** Para riesgos de bajo impacto o muy baja probabilidad, se documenta su existencia pero no se toman acciones preventivas.
+
+## Métricas y evaluación
+
+La medición objetiva del progreso y la calidad es fundamental para el proceso iterativo. Las métricas proporcionan retroalimentación cuantitativa que informa la toma de decisiones.
+
+### Métricas de proceso
+
+Las métricas de proceso evalúan la eficiencia y efectividad del desarrollo mismo:
+
+**Velocidad de desarrollo:** Se mide a través del número de tareas completadas por sprint, la tasa de reducción del backlog (burndown), y el tiempo de ciclo por funcionalidad. Estas métricas ayudan a estimar cuánto trabajo puede completarse en iteraciones futuras.
+
+**Calidad del código:** Incluye la cobertura de pruebas automatizadas (objetivo mínimo de 70%), la densidad de defectos encontrados por cada mil líneas de código, y la acumulación de deuda técnica (código que funciona pero requiere refactorización).
+
+### Métricas de producto
+
+Las métricas de producto evalúan las características del prototipo resultante:
+
+**Métricas funcionales:** Porcentaje de requisitos implementados exitosamente, tasa de éxito en la ejecución de casos de uso, y tiempo de respuesta del sistema a diferentes estímulos.
+
+**Métricas no funcionales:** Fiabilidad medida como tiempo medio entre fallos (MTBF), disponibilidad del sistema (uptime), eficiencia en términos de consumo energético y uso de recursos computacionales, e incidentes de seguridad.
+
+### Evaluación de iteraciones
+
+Al final de cada sprint se realiza una evaluación estructurada que responde las siguientes preguntas:
+
+- ¿Se cumplieron los objetivos planificados para el sprint?
+- ¿Las demostraciones del incremento funcional son exitosas?
+- ¿Se mantienen o mejoran las métricas de calidad?
+- ¿Qué lecciones se aprendieron durante la iteración?
+- ¿Qué ajustes metodológicos o técnicos son necesarios?
+
+Las respuestas a estas preguntas informan la planificación del siguiente ciclo y contribuyen al proceso de mejora continua.
+
+## Estrategia de documentación
+
+La documentación es un componente esencial del proceso de investigación y desarrollo. Una documentación adecuada facilita la reproducibilidad, permite la transferencia de conocimiento, y constituye parte fundamental de los entregables del proyecto.
+
+### Niveles de documentación
+
+La estrategia de documentación se estructura en cuatro niveles complementarios:
+
+**Documentación de código:** Incluye comentarios en línea y documentación estructurada (docstrings) que explican la lógica de implementación, parámetros de funciones, y valores de retorno. Esta documentación debe ser suficiente para que otro desarrollador pueda entender y modificar el código.
+
+**Documentación técnica:** Comprende la arquitectura del sistema, especificaciones de interfaces entre componentes, documentación de APIs, y descripciones de algoritmos implementados. Este nivel de documentación es esencial para el mantenimiento y evolución del sistema.
+
+**Documentación de usuario:** Incluye guías de operación, tutoriales de uso, y documentación de troubleshooting. Aunque el prototipo sea para investigación, esta documentación facilita las demostraciones y ayuda a usuarios futuros.
+
+**Documentación de proyecto:** Engloba documentos de requisitos, decisiones de diseño con su justificación (Architecture Decision Records), reportes de pruebas, y lecciones aprendidas. Esta documentación captura el proceso y la evolución del proyecto.
+
+### Principios de documentación efectiva
+
+**Actualización continua:** La documentación se genera y actualiza durante el desarrollo, no como actividad posterior. Esto asegura mayor precisión y evita la pérdida de información contextual.
+
+**Claridad y concisión:** Los documentos deben ser claros y directos, escritos pensando en quienes continuarán el proyecto o lo evaluarán.
+
+**Trazabilidad:** Las decisiones de diseño deben vincularse con los requisitos que las motivaron, y los cambios deben documentarse con su justificación.
+
+**Versionado:** La documentación debe sincronizarse con las versiones del código, permitiendo recuperar la documentación correspondiente a cualquier versión anterior del prototipo.
+
+## Mejora continua
+
+El concepto de mejora continua, inspirado en la filosofía Kaizen de la manufactura, se aplica tanto al prototipo como al proceso de desarrollo mismo.
 
 ### Retrospectivas
 
-**Formato Start-Stop-Continue**:
+Al finalizar cada sprint se realiza una retrospectiva estructurada donde el equipo (o el investigador individual) reflexiona sobre el proceso. Un formato efectivo es el método Start-Stop-Continue:
 
-**Start** (Empezar a hacer):
-- Más pruebas de integración temprana
-- Daily logs de progreso
+**Start (comenzar a hacer):** Nuevas prácticas que se identifica podrían mejorar el proceso.
 
-**Stop** (Dejar de hacer):
-- Procrastinar documentación
-- Saltarse validación de seguridad
+**Stop (dejar de hacer):** Prácticas actuales que están demostrando ser contraproducentes o ineficientes.
 
-**Continue** (Continuar haciendo):
-- Code reviews exhaustivos
-- Refactoring regular
+**Continue (continuar haciendo):** Prácticas que están funcionando bien y deben mantenerse.
 
-### Kaizen (Mejora Incremental)
+Las conclusiones de cada retrospectiva se documentan y se traducen en acciones concretas para la siguiente iteración.
 
-- Pequeñas mejoras constantes
-- Eliminar desperdicio
-- Automatizar tareas repetitivas
+### Aprendizaje incremental
 
-**Ejemplo**:
-```bash
-# Script para automatizar setup diario
-#!/bin/bash
-# daily_setup.sh
+El desarrollo de un prototipo robótico implica necesariamente aprender sobre tecnologías, herramientas y dominios específicos. Se recomienda seguir la regla 80/20: dedicar aproximadamente el 80% del tiempo a implementación y el 20% a aprendizaje e investigación.
 
-echo "Iniciando entorno de desarrollo..."
+Cuando se encuentra un problema técnico, se sugiere la siguiente jerarquía de fuentes de información:
 
-# Activar entorno virtual
-source venv/bin/activate
+1. Documentación oficial de las herramientas y bibliotecas utilizadas
+2. Comunidades especializadas y foros técnicos
+3. Literatura académica para problemas de investigación
+4. Tutoriales y recursos educativos
+5. Consulta directa con expertos en la comunidad
 
-# Actualizar repositorio
-git pull origin develop
+Es recomendable mantener un registro de aprendizajes (TIL - Today I Learned) donde se documentan problemas encontrados, soluciones aplicadas, y conocimiento adquirido. Este registro se convierte en una base de conocimiento personal que facilita resolver problemas similares en el futuro.
 
-# Verificar dependencias
-pip install -r requirements.txt
+### Optimización del proceso
 
-# Ejecutar tests rápidos
-pytest tests/unit/ -v
+La automatización de tareas repetitivas libera tiempo para actividades de mayor valor agregado. Se recomienda identificar tareas que se realizan frecuentemente y crear scripts o configuraciones que las simplifiquen. Ejemplos incluyen configuración del entorno de desarrollo, ejecución de baterías de pruebas, o generación de reportes.
 
-echo "✓ Entorno listo!"
-```
+## Cadencia de actividades
 
----
+La estructura temporal del proyecto proporciona ritmo y puntos de sincronización. La cadencia propuesta opera en cuatro escalas temporales:
 
-## 📅 Cadencia de Actividades
+### Actividades diarias
 
-### Diario
-- Commit de cambios
-- Logging de progreso
-- Breve revisión de objetivos
+- Registro de cambios en el sistema de control de versiones (commits)
+- Documentación breve del progreso y obstáculos encontrados
+- Revisión de objetivos del día siguiente
 
-### Semanal
-- Retrospectiva de sprint
-- Planificación siguiente sprint
-- Actualización de documentación
+### Actividades semanales
 
-### Mensual
-- Revisión de objetivos de fase
-- Ajuste de cronograma si necesario
-- Evaluación de métricas
+- Retrospectiva del sprint anterior
+- Planificación detallada del siguiente sprint
+- Actualización de documentación técnica
+- Revisión del estado de riesgos
 
-### Por Fase
-- Revisión completa de fase
-- Documentación exhaustiva
-- Demo de funcionalidades
-- Go/No-Go para siguiente fase
+### Actividades mensuales
 
----
+- Revisión de cumplimiento de objetivos de la fase actual
+- Ajuste del cronograma general si es necesario
+- Evaluación cuantitativa de métricas acumuladas
+- Comunicación de progreso a supervisores o stakeholders
 
-## 🎯 Definición de "Hecho" (Done)
+### Actividades por fase
 
-Una tarea se considera completada cuando:
+- Revisión exhaustiva de la fase completada
+- Documentación completa de entregables de la fase
+- Demostración formal de funcionalidades implementadas
+- Decisión go/no-go para avanzar a la siguiente fase
 
-- [ ] **Código escrito** y funciona
-- [ ] **Tests** implementados y pasando
-- [ ] **Documentado** (código y README)
-- [ ] **Code review** aprobado (si aplica)
-- [ ] **Integrado** con sistema principal
-- [ ] **Probado** en hardware (si aplica)
-- [ ] **Sin regressions** (tests anteriores siguen pasando)
+## Definición de "terminado"
 
----
+Para mantener estándares de calidad consistentes, es fundamental establecer criterios claros de cuándo una tarea está verdaderamente completa. Una tarea se considera terminada cuando cumple todos los siguientes criterios:
 
-## 🛠️ Automatización
+- El código está escrito, implementado y funciona según lo especificado
+- Existen pruebas automatizadas que verifican su funcionamiento y estas pruebas están pasando
+- El código y las funcionalidades están documentados apropiadamente
+- Si aplica, el código ha sido revisado (code review)
+- El nuevo componente está integrado con el sistema principal
+- Si la funcionalidad involucra hardware, ha sido probada en condiciones reales
+- Las pruebas anteriores del sistema siguen pasando (no se introdujeron regresiones)
 
-### CI/CD (Continuous Integration/Deployment)
+Este criterio compartido evita acumular trabajo "casi terminado" y asegura que cada incremento es realmente utilizable.
 
-**GitHub Actions ejemplo**:
-```yaml
-# .github/workflows/test.yml
-name: Tests
+## Consideraciones éticas y de seguridad
 
-on: [push, pull_request]
+El desarrollo de sistemas robóticos autónomos plantea consideraciones éticas y de seguridad que deben abordarse desde el diseño metodológico.
 
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v2
-    
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.9
-    
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
-    
-    - name: Run tests
-      run: |
-        pytest tests/ --cov=robot
-    
-    - name: Upload coverage
-      uses: codecov/codecov-action@v2
-```
+### Seguridad física
 
-### Pre-commit Hooks
+Los prototipos robóticos pueden causar lesiones si no se manejan adecuadamente. Es imperativo implementar múltiples niveles de seguridad:
 
-```bash
-# .git/hooks/pre-commit
-#!/bin/bash
+- Mecanismos de parada de emergencia siempre accesibles
+- Límites de software y hardware para movimientos y fuerzas máximas
+- Zona de operación claramente definida y señalizada
+- Supervisión humana durante todas las pruebas con hardware
+- Protocolos de seguridad documentados y ensayados
 
-echo "Ejecutando tests antes de commit..."
-pytest tests/unit/ -q
+### Seguridad de datos
 
-if [ $? -ne 0 ]; then
-    echo "❌ Tests fallaron. Commit cancelado."
-    exit 1
-fi
+Si el prototipo recopila datos, especialmente en espacios públicos o que involucren personas, deben considerarse aspectos de privacidad y protección de datos. Los datos sensibles deben anonimizarse, y debe existir claridad sobre qué información se recopila y cómo se utiliza.
 
-echo "✓ Tests OK. Procediendo con commit."
-```
+### Consideraciones éticas
+
+El diseño del prototipo debe considerar las implicaciones éticas de su operación. Esto incluye reflexionar sobre el propósito del sistema, sus posibles usos indebidos, y el impacto que podría tener en individuos o grupos. Estas reflexiones deben documentarse como parte del proyecto.
 
 ---
 
-## 📖 Plantillas
+**Nota final:** Esta metodología constituye un marco flexible que debe adaptarse según las necesidades específicas del proyecto y las lecciones aprendidas durante su ejecución. La rigidez metodológica puede ser tan perjudicial como la falta de método; el balance apropiado se encuentra mediante la reflexión continua sobre qué aspectos de la metodología están aportando valor y cuáles requieren ajustes.
 
-### Plantilla de README
-
-```markdown
-# Nombre del Módulo
-
-## Propósito
-Breve descripción (1-2 líneas)
-
-## Contenido
-```
-carpeta/
-├── file1.py
-└── file2.py
-```
-
-## Instalación
-```bash
-pip install requirements
-```
-
-## Uso
-```python
-from module import function
-result = function(param)
-```
-
-## API
-### function(param)
-Descripción de la función
-
-**Params**:
-- `param` (type): Descripción
-
-**Returns**:
-- type: Descripción
-
-## Ejemplos
-...
-
-## Tests
-```bash
-pytest tests/test_module.py
-```
-
-## Referencias
-- Link 1
-- Link 2
-```
-
----
-
-## 🏆 Cultura de Excelencia
-
-### Principios
-
-1. **Calidad sobre cantidad**: Mejor poco bien hecho
-2. **Responsabilidad**: Ownership de tu código
-3. **Curiosidad**: Siempre pregunta "¿por qué?"
-4. **Humildad**: Acepta feedback, aprende continuamente
-5. **Colaboración**: Comparte conocimiento
-
-### Anti-patrones a Evitar
-
-❌ **Código espagueti**: Sin estructura clara
-❌ **Comentarios innecesarios**: Código debe ser autoexplicativo
-❌ **Optimización prematura**: Primero funciona, luego optimiza
-❌ **Not Invented Here**: Usa librerías existentes cuando tiene sentido
-❌ **Ignorar warnings**: Atiéndelos temprano
-
----
-
-**Última actualización**: Febrero 2026
-
-**Nota**: Esta metodología es adaptable. Ajustar según necesidades del proyecto y lecciones aprendidas.
+**Última actualización:** Marzo de 2026

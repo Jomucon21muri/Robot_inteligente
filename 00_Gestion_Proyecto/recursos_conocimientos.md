@@ -1,568 +1,344 @@
-# 📚 Recursos y conocimientos necesarios
+# Recursos y conocimientos necesarios
 
 ## Resumen ejecutivo
 
-La construcción de un robot humanoide es un proceso altamente complejo y multidisciplinario que requiere una combinación profunda de habilidades mecánicas, electrónicas y de programación. Este documento detalla los 12 pilares de conocimiento necesarios para la construcción exitosa de un robot humanoide desde cero, con referencias a las carpetas del proyecto donde se aplican y documentación técnica exhaustiva a nivel de investigación doctoral.
+El desarrollo de un robot humanoide constituye una empresa multidisciplinaria de considerable complejidad técnica. Este documento establece los fundamentos teóricos y prácticos necesarios para abordar con éxito un proyecto de esta naturaleza, organizados en doce dominios de conocimiento interrelacionados. Cada dominio se vincula con las secciones correspondientes del repositorio donde se aplican estos conocimientos, facilitando la navegación entre teoría y práctica.
 
-## Introducción: Complejidad de la Robótica Humanoide
+El presente documento está orientado a servir como referencia técnica comprehensiva para investigadores y desarrolladores que trabajan en el campo de la robótica humanoide, con particular énfasis en los aspectos relevantes para investigación de nivel doctoral.
 
-Para empezar, se debe diseñar el esqueleto del robot, que debe ser lo suficientemente resistente para soportar su peso y permitir su movimiento natural. Luego, se debe instalar una serie de sensores y motores que permitan al robot ver, percibir y moverse de manera coordinada.
+## Introducción: la complejidad de la robótica humanoide
 
-Una vez que se ha construido el esqueleto y se han instalado los componentes electrónicos, se debe programar el robot para que pueda realizar tareas específicas. Esto puede incluir caminar, hablar, reconocer objetos y seguir instrucciones. La programación puede ser muy compleja y puede requerir la creación de algoritmos personalizados y arquitecturas de software robustas.
+La robótica humanoide representa uno de los desafíos más ambiciosos en el campo de la ingeniería y la ciencia de la computación. A diferencia de robots especializados en tareas únicas, un robot humanoide debe integrar múltiples capacidades —locomoción bípeda, manipulación diestra, percepción multimodal, y cognición artificial— en un sistema coherente y coordinado.
 
-Además de la construcción del robot en sí, también es importante considerar cómo se utilizará y qué tareas se le asignarán. Por ejemplo, algunos robots humanoides se utilizan en la atención médica para ayudar a los pacientes a recuperarse, mientras que otros se utilizan en la industria para realizar tareas peligrosas o repetitivas.
+El proceso de desarrollo comienza con el diseño estructural: un esqueleto mecánico que debe equilibrar resistencia y peso, permitiendo rangos de movimiento comparables a los del cuerpo humano. Esta estructura debe soportar no solo su propio peso, sino también las fuerzas dinámicas generadas durante la locomoción y la manipulación de objetos.
 
-En resumen, la construcción de un robot humanoide es un proceso complejo que requiere una combinación de habilidades mecánicas, electrónicas y de programación. El resultado final puede ser un robot capaz de realizar tareas impresionantes y mejorar la vida de las personas.
+Sobre esta base mecánica se integran los sistemas sensoriales y actuadores. Los sensores proporcionan al robot percepción de su entorno (sensores exteroceptivos) y conciencia de su propia configuración y estado (sensores propioceptivos). Los actuadores traducen decisiones computacionales en movimientos físicos bajo el control de sistemas que deben operar en tiempo real.
 
-## Visión General
+La capa computacional coordina estos elementos físicos mediante arquitecturas de software jerárquicas. Los controladores de bajo nivel gestionan actuadores individuales, mientras que sistemas de más alto nivel implementan planificación de movimientos, fusión sensorial, y toma de decisiones autónomas. En el nivel superior, algoritmos de inteligencia artificial permiten que el robot aprenda de la experiencia, se adapte a situaciones no previstas, y ejecute tareas que requieren reconocimiento de patrones complejos.
 
-Este documento detalla los 12 pilares de conocimiento necesarios para la construcción exitosa de un robot humanoide, con referencias a las carpetas del proyecto donde se aplican.
+Finalmente, el propósito y contexto de aplicación determinan qué capacidades específicas debe desarrollar el robot. Algunos robots humanoides se orientan a la asistencia médica, otros a tareas industriales, y otros más a la investigación fundamental sobre inteligencia artificial embodied (encarnada en un cuerpo físico).
 
----
+## Marco teórico: inteligencias múltiples aplicadas a la robótica
 
-## 🎯 Marco Teórico: Inteligencias Múltiples Aplicadas a la Robótica
+La teoría de las inteligencias múltiples propuesta por Howard Gardner (1983) ofrece un marco conceptual valioso para estructurar el desarrollo de capacidades en robots humanoides. Aunque originalmente formulada para describir la cognición humana, la teoría puede adaptarse productivamente al diseño de sistemas robóticos, ayudando a identificar qué competencias desarrollar en cada subsistema.
 
-La teoría de las **Inteligencias Múltiples** de Howard Gardner (1983) proporciona un marco conceptual valioso para diseñar robots humanoides con capacidades diversificadas. Este enfoque nos permite identificar qué competencias desarrollar en cada área del robot.
+### Adaptación del marco teórico
 
-### Tabla de Inteligencias Múltiples en Robótica
+La siguiente tabla sintetiza cómo cada tipo de inteligencia identificado por Gardner puede manifestarse en sistemas robóticos, junto con las competencias técnicas requeridas y las áreas que aún presentan desafíos importantes:
 
-| Inteligencia | Adaptación en robots | Competencias clave en robótica | Ejemplos de actividades | Áreas a mejorar |
-|--------------|---------------------|--------------------------------|------------------------|-----------------|
-| **Lingüística-verbal** | Procesamiento y generación de lenguaje natural | - Reconocimiento de voz<br>- Comprensión semántica<br>- Síntesis de lenguaje natural | Asistentes conversacionales, traducción, interacción humano-robot | Mayor comprensión del **contexto**, **ironía** y **emociones** en el lenguaje |
-| **Lógico-matemática** | Capacidad de razonamiento, cálculo y resolución de problemas | - Algoritmos de planificación<br>- Optimización<br>- Aprendizaje automático | Resolución de problemas, navegación autónoma, diagnóstico | Razonamiento **abductivo** y **creatividad algorítmica**, no solo lógica estricta |
-| **Espacial-visual** | Percepción del entorno mediante sensores y visión artificial | - Reconocimiento de objetos<br>- SLAM (mapas y localización)<br>- Simulación 3D | Conducción autónoma, manipulación de objetos, drones | Mejorar la **comprensión del contexto visual** y la **anticipación de movimientos** |
-| **Musical** | Análisis y generación de patrones de sonido | - Reconocimiento de ritmos<br>- Clasificación de audio<br>- Síntesis sonora | Robots músicos, asistentes creativos, reconocimiento acústico | Detección de **emociones en la música** y generación más **expresiva** |
-| **Corporal-kinestésica** | Coordinación de movimientos físicos y manipulación | - Control de motores<br>- Coordinación multiarticulada<br>- Interacción háptica | Humanoides, cirugías asistidas, brazos robóticos | Movimientos más **naturales, fluidos y adaptativos** |
-| **Interpersonal** | Capacidad para interactuar con humanos de manera social | - Detección de emociones<br>- Comunicación no verbal<br>- Colaboración | Robots de asistencia, enseñanza, servicio al cliente | Mayor **empatía artificial** y adaptación a **normas culturales** |
-| **Intrapersonal** | Autogestión y autorregulación interna | - Evaluación del estado interno<br>- Planificación autónoma<br>- Gestión de prioridades | Robots autónomos que deciden cuándo recargarse, priorizar tareas | Desarrollo de una **metacognición artificial** (saber lo que sabe) |
-| **Naturalista** | Reconocimiento y clasificación de entornos naturales | - Sensores ambientales<br>- Identificación de especies<br>- Análisis de datos ecológicos | Robots agrícolas, de exploración ambiental, conservación | Mejorar la **interpretación contextual** y las **relaciones ecosistémicas** |
+| Inteligencia | Manifestación en robótica | Competencias técnicas clave | Desafíos actuales |
+|--------------|---------------------------|----------------------------|-------------------|
+| Lingüística-verbal | Procesamiento y generación de lenguaje natural | Reconocimiento de voz, comprensión semántica, síntesis de lenguaje | Comprensión de contexto, ironía y emociones en el lenguaje |
+| Lógico-matemática | Razonamiento, cálculo y resolución de problemas | Planificación algorítmica, optimización, aprendizaje automático | Razonamiento abductivo y creatividad algorítmica |
+| Espacial-visual | Percepción y modelado del entorno | Reconocimiento de objetos, SLAM, simulación 3D | Comprensión contextual y anticipación de movimientos |
+| Musical | Análisis y generación de patrones sonoros | Reconocimiento de ritmos, clasificación de audio, síntesis sonora | Detección de emociones y generación expresiva |
+| Corporal-kinestésica | Coordinación y ejecución de movimientos físicos | Control de actuadores, coordinación multiarticulada, control háptico | Movimientos naturales, fluidos y adaptativos |
+| Interpersonal | Interacción social con humanos | Detección de emociones, comunicación no verbal, colaboración | Empatía artificial y adaptación cultural |
+| Intrapersonal | Autogestión y autorregulación | Evaluación de estado interno, planificación autónoma, gestión de prioridades | Metacognición artificial (conocimiento del propio conocimiento) |
+| Naturalista | Reconocimiento y clasificación de entornos | Sensores ambientales, identificación de patrones naturales, análisis ecológico | Interpretación contextual y relaciones ecosistémicas |
 
-### Aplicación al Proyecto de Robot Humanoide
+### Aplicación al desarrollo del prototipo
 
-Este marco teórico guía el desarrollo de competencias en nuestro robot:
+Este marco teórico estructura el desarrollo de capacidades del robot a lo largo del proyecto. Cada tipo de inteligencia se mapea a subsistemas específicos del repositorio:
 
-#### 📍 Mapeo a las carpetas del proyecto
+**Inteligencia lingüística-verbal:** Implementada en los módulos de percepción auditiva (01_Percepcion/audio/) y procesamiento de lenguaje natural (05_Aprendizaje_Maquina/nlp/).
 
-```
-🧠 Lingüística-verbal    → 01_Percepcion/audio/, 05_Aprendizaje_Maquina/nlp/
-🔢 Lógico-matemática     → 03_Planificacion/, 11_Herramientas_Utilidades/
-👁️ Espacial-visual       → 06_Vision/, 02_Localizacion_Mapeo/
-🎵 Musical               → 01_Percepcion/audio/, aplicaciones creativas
-🤸 Corporal-kinestésica  → 04_Control/, 08_Integracion_Hardware/
-👥 Interpersonal         → 05_Aprendizaje_Maquina/social_interaction/
-🪞 Intrapersonal         → 00_Gestion_Proyecto/, sistemas de toma de decisiones
-🌿 Naturalista           → 01_Percepcion/chemical/, aplicaciones especializadas
-```
+**Inteligencia lógico-matemática:** Fundamental en los sistemas de planificación (03_Planificacion/) y herramientas computacionales (11_Herramientas_Utilidades/).
 
-#### 🎯 Objetivos de desarrollo por inteligencia
+**Inteligencia espacial-visual:** Desarrollada en visión computacional (06_Vision/) y localización y mapeo simultáneos (02_Localizacion_Mapeo/).
 
-**Fase 1 (Meses 1-6)**: Fundamentos
-- ✅ Espacial-visual: Visión básica y navegación
-- ✅ Corporal-kinestésica: Control de movimientos básicos
-- ✅ Lógico-matemática: Planificación de rutas
+**Inteligencia musical:** Aplicable en procesamiento de audio (01_Percepcion/audio/) y aplicaciones creativas especializadas.
 
-**Fase 2 (Meses 7-9)**: Interacción
-- ✅ Lingüística-verbal: Reconocimiento y síntesis de voz
-- ✅ Interpersonal: Detección de emociones básicas
+**Inteligencia corporal-kinestésica:** Pilar fundamental del control de movimiento (04_Control/) y la integración con hardware (08_Integracion_Hardware/).
 
-**Fase 3 (Meses 10-12)**: Autonomía
-- ✅ Intrapersonal: Sistema de toma de decisiones autónomo
-- ✅ Musical: Reconocimiento de contextos acústicos (opcional)
-- ✅ Naturalista: Sensores ambientales (opcional)
+**Inteligencia interpersonal:** Implementada en módulos de interacción social (05_Aprendizaje_Maquina/social_interaction/).
 
-### Evaluación de Inteligencias
+**Inteligencia intrapersonal:** Manifestada en sistemas de toma de decisiones autónomas y gestión de recursos internos.
 
-Para medir el desarrollo de cada inteligencia en el robot:
+**Inteligencia naturalista:** Aplicable en sensores químicos y ambientales (01_Percepcion/chemical/) para aplicaciones especializadas.
 
-```python
-class IntelligenceEvaluator:
-    """Evalúa el nivel de desarrollo de cada inteligencia"""
-    
-    def __init__(self):
-        self.scores = {
-            'linguistic': 0,
-            'logical': 0,
-            'spatial': 0,
-            'musical': 0,
-            'kinesthetic': 0,
-            'interpersonal': 0,
-            'intrapersonal': 0,
-            'naturalist': 0
-        }
-    
-    def evaluate_linguistic(self, tests):
-        """
-        Tests: reconocimiento de voz, comprensión de contexto, 
-               generación de respuestas coherentes
-        """
-        score = 0
-        if tests['speech_recognition_accuracy'] > 0.9:
-            score += 25
-        if tests['context_understanding']:
-            score += 25
-        if tests['natural_response_generation']:
-            score += 25
-        if tests['emotion_detection_in_voice']:
-            score += 25
-        return score
-    
-    def evaluate_spatial(self, tests):
-        """
-        Tests: SLAM accuracy, object detection, navigation
-        """
-        score = 0
-        if tests['object_detection_map'] > 0.8:
-            score += 25
-        if tests['slam_loop_closure']:
-            score += 25
-        if tests['autonomous_navigation_success_rate'] > 0.9:
-            score += 25
-        if tests['3d_reconstruction_quality'] > 0.7:
-            score += 25
-        return score
-    
-    # ... más métodos de evaluación para cada inteligencia
-    
-    def generate_report(self):
-        """Genera reporte del desarrollo de inteligencias"""
-        total = sum(self.scores.values())
-        avg = total / len(self.scores)
-        
-        report = "📊 EVALUACIÓN DE INTELIGENCIAS MÚLTIPLES\n"
-        report += "=" * 50 + "\n\n"
-        
-        for intelligence, score in sorted(self.scores.items(), key=lambda x: x[1], reverse=True):
-            bar = "█" * (score // 5) + "░" * (20 - score // 5)
-            report += f"{intelligence:15s} [{bar}] {score}/100\n"
-        
-        report += f"\n{'Promedio Total':15s} {avg:.1f}/100\n"
-        
-        return report
-```
+### Desarrollo progresivo por fases
+
+El desarrollo de estas inteligencias se estructura en tres fases temporales:
+
+**Fase 1 (fundamentos):** Prioriza las capacidades espacial-visual, corporal-kinestésica y lógico-matemática. Estas inteligencias constituyen los requisitos mínimos para que el robot pueda navegar, manipular objetos, y planificar acciones básicas.
+
+**Fase 2 (interacción):** Incorpora las inteligencias lingüística-verbal e interpersonal, permitiendo que el robot interactúe de manera más natural con humanos mediante reconocimiento de voz y detección de emociones.
+
+**Fase 3 (autonomía):** Desarrolla la inteligencia intrapersonal para toma de decisiones verdaderamente autónoma, complementada opcionalmente con capacidades musicales y naturalistas según las aplicaciones específicas previstas.
 
 ### Prioridades de investigación
 
-**Áreas más desafiantes** (requieren investigación adicional):
+Tres áreas presentan desafíos particularmente significativos que requieren investigación adicional:
 
-1. **Intrapersonal** (Metacognición): 
-   - ¿Cómo lograr que el robot "sepa lo que sabe"?
-   - Modelos de uncertainty quantification
-   - Self-supervised learning
+**Metacognición (inteligencia intrapersonal):** El desarrollo de sistemas que "sepan lo que saben" requiere avances en cuantificación de incertidumbre y aprendizaje auto-supervisado.
 
-2. **Interpersonal** (Empatía artificial):
-   - Reconocimiento de emociones multimodal
-   - Adaptación cultural
-   - Teoría de la mente (Theory of Mind)
+**Empatía artificial (inteligencia interpersonal):** El reconocimiento de emociones multimodal, la adaptación cultural, y la implementación de teoría de la mente (theory of mind) permanecen como problemas abiertos.
 
-3. **Lingüística** (Comprensión profunda):
-   - Pragmática del lenguaje
-   - Ironía y sarcasmo
-   - Contexto conversacional de largo plazo
+**Comprensión pragmática del lenguaje (inteligencia lingüística):** La interpretación de ironía, sarcasmo, y el mantenimiento de contexto conversacional de largo plazo requieren modelos más sofisticados que los actuales.
 
-### Referencias teóricas
+### Referencias teóricas fundamentales
 
-**Papers clave**:
+**Fundamentos teóricos:**
 - Gardner, H. (1983). "Frames of Mind: The Theory of Multiple Intelligences"
 - Dautenhahn, K. (2007). "Socially intelligent robots: dimensions of human–robot interaction"
 - Breazeal, C. (2003). "Toward sociable robots"
 
-**Aplicaciones en IA**:
-- Multi-task learning (una red, múltiples inteligencias)
-- Ensemble methods (especialistas por inteligencia)
-- Curriculum learning (desarrollar inteligencias secuencialmente)
+**Aplicaciones en inteligencia artificial:**
+- Multi-task learning para desarrollar múltiples inteligencias con arquitecturas compartidas
+- Ensemble methods donde diferentes modelos especializados representan distintas inteligencias
+- Curriculum learning para desarrollar inteligencias de manera secuencial y acumulativa
+
+
+## 1. Mecánica y diseño mecánico
+
+**Carpeta principal:** [08_Integracion_Hardware/](../08_Integracion_Hardware/)
+
+El diseño mecánico constituye la base física sobre la cual se construyen todas las demás capacidades del robot. Esta disciplina abarca desde los principios fundamentales de la mecánica clásica hasta técnicas avanzadas de optimización estructural.
+
+### Fundamentos teóricos de mecánica
+
+**Mecánica clásica.** Los principios newtonianos de fuerza, movimiento y conservación de energía son fundamentales para predecir el comportamiento del robot. El análisis de estática determina cómo las estructuras soportan cargas sin movimiento, mientras que la dinámica describe cómo las fuerzas producen aceleraciones y movimientos.
+
+**Mecánica de materiales.** La comprensión de cómo los materiales se deforman bajo carga permite diseñar estructuras que sean simultáneamente resistentes y ligeras. Conceptos como esfuerzo, deformación, módulo de Young y límites elásticos son esenciales para la selección apropiada de materiales.
+
+### Diseño de articulaciones humanoides
+
+Las articulaciones determinan la capacidad de movimiento del robot. El diseño debe emular los rangos y tipos de movimiento de las articulaciones humanas:
+
+**Articulaciones de giro simple** (como codos y rodillas) permiten rotación en un solo eje. **Articulaciones esféricas** (como hombros y caderas) permiten rotación en múltiples ejes, ofreciendo mayor versatilidad pero presentando desafíos significativos en diseño y control.
+
+El compromiso entre rango de movimiento, resistencia mecánica, y complejidad de fabricación guía las decisiones de diseño. Frecuentemente se opta por aproximaciones que sacrifican algo de versatilidad a cambio de mayor fiabilidad y facilidad de construcción.
+
+### Modelado asistido por computadora
+
+El diseño moderno de componentes mecánicos se realiza mediante software de CAD (diseño asistido por computadora). Estas herramientas permiten:
+
+- Modelado paramétrico donde las dimensiones pueden ajustarse y el diseño completo se actualiza automáticamente
+- Simulación de ensamblajes para verificar que los componentes encajan correctamente
+- Detección de interferencias para identificar colisiones entre piezas móviles
+- Generación automática de planos técnicos para fabricación
+
+Las herramientas más utilizadas incluyen SolidWorks (entorno profesional, ampliamente usado en industria), Fusion 360 (solución multiplataforma con características avanzadas), y FreeCAD (alternativa de código abierto).
+
+### Selección de materiales
+
+La selección de materiales implica equilibrar múltiples propiedades: resistencia mecánica, peso, costo, facilidad de fabricación, y disponibilidad.
+
+**Plásticos de ingeniería** (ABS, PLA, PETG, nylon) son livianos, económicos y compatibles con impresión 3D. Se emplean para carcasas, soportes y componentes no estructurales.
+
+**Metales** (aluminio, acero, titanio) ofrecen resistencia superior y se utilizan en la estructura principal, ejes de rotación y elementos que soportan cargas elevadas. El aluminio es particularmente popular por su favorable relación resistencia-peso.
+
+**Materiales compuestos** (fibra de carbono, fibra de vidrio) proporcionan la mejor relación resistencia-peso, pero son más costosos y requieren técnicas de fabricación especializadas. Se reservan para componentes estructurales críticos donde la minimización de peso es prioritaria.
+
+### Cinemática y dinámica
+
+**Cinemática directa** resuelve el problema de determinar la posición del efector final (por ejemplo, la mano) dados los ángulos de todas las articulaciones. Este problema tiene solución única y directa mediante transformaciones geométricas.
+
+**Cinemática inversa** aborda el problema inverso: dados una posición y orientación deseadas, determinar qué ángulos articulares son necesarios. Este problema es más complejo y puede tener múltiples soluciones o ninguna. Las convenciones de Denavit-Hartenberg proporcionan un marco sistemático para resolver estos problemas.
+
+**Dinámica** extiende el análisis cinemático incorporando fuerzas y torques. Permite calcular cuánta fuerza debe generar cada actuador para producir movimientos deseados, considerando la masa de cada segmento, la fricción en las articulaciones, y los efectos de la gravedad.
+
+### Simulación y validación virtual
+
+Antes de fabricar componentes físicos, la simulación permite identificar problemas potenciales:
+
+**Análisis de elementos finitos (FEA)** divide una pieza en miles de elementos pequeños y calcula cómo se distribuyen los esfuerzos bajo diferentes cargas. Esto permite identificar puntos de concentración de esfuerzo donde podrían producirse fallas.
+
+**Simulación física** (Gazebo, PyBullet, V-REP) permite probar el comportamiento del robot completo en entornos virtuales. Es posible experimentar con controladores y algoritmos sin riesgo de dañar hardware.
+
+### Referencias bibliográficas
+
+- Spong, M. W., Hutchinson, S., & Vidyasagar, M. (2006). "Robot Modeling and Control"
+- Craig, J. J. (2005). "Introduction to Robotics: Mechanics and Control"
+- Murray, R. M., Li, Z., & Sastry, S. S. (1994). "A Mathematical Introduction to Robotic Manipulation"
 
 ---
 
-## 1. 🔩 Mecánica y Diseño Mecánico
+## 2. Electrónica y sistemas eléctricos
 
-**Carpeta principal**: [`08_Integracion_Hardware/`](../08_Integracion_Hardware/)
+**Carpeta principal:** [08_Integracion_Hardware/](../08_Integracion_Hardware/)
 
-### Conocimientos Fundamentales
+Los sistemas electrónicos proporcionan la infraestructura para sensar, procesar y actuar. Esta sección abarca desde fundamentos de circuitos hasta arquitecturas de control distribuido.
 
-#### 1.1 Conceptos Básicos de Mecánica
-- Principios de fuerza, movimiento, fricción y torque
-- Leyes de Newton y mecánica newtoniana
-- Estática y dinámica de cuerpos rígidos
-- Análisis de cargas y distribución de fuerzas
+### Fundamentos de circuitos eléctricos
 
-#### 1.2 Diseño de Articulaciones y Estructuras
-- Diseño de articulaciones humanoides (rodillas, codos, caderas, hombros)
-- Rango de movimiento (ROM) similar al humano
-- Estructuras resistentes y ligeras
-- Optimización peso-resistencia
+Los circuitos eléctricos se rigen por leyes fundamentales que permiten analizar y diseñar sistemas de cualquier complejidad:
 
-#### 1.3 Modelado 3D y CAD
-**Software recomendado**:
-- SolidWorks (profesional)
-- Fusion 360 (intermedio)
-- FreeCAD (open source)
-- Blender (visualización)
+**Ley de Ohm** (V = I × R) relaciona voltaje, corriente y resistencia. **Leyes de Kirchhoff** establecen que la suma de corrientes en un nodo es cero, y que la suma de voltajes en un lazo cerrado es cero. Estos principios fundamentales permiten analizar circuitos arbitrariamente complejos.
 
-**Habilidades**:
-- Modelado paramétrico
-- Ensamblajes y restricciones
-- Análisis de interferencias
-- Generación de planos técnicos
+La **potencia eléctrica** (P = V × I) determina cuánta energía se consume o disipa. Este cálculo es crítico para dimensionar fuentes de alimentación y sistemas de refrigeración.
 
-#### 1.4 Selección de Materiales
-**Materiales comunes**:
-- **Plásticos**: ABS, PLA, PETG, Nylon
-  - Ventajas: Livianos, económicos, fácil fabricación
-  - Uso: Carcasas, soportes, piezas no estructurales
-  
-- **Metales**: Aluminio, acero, titanio
-  - Ventajas: Alta resistencia, durabilidad
-  - Uso: Estructura principal, ejes, elementos de carga
-  
-- **Compuestos**: Fibra de carbono, fibra de vidrio
-  - Ventajas: Excelente relación peso-resistencia
-  - Uso: Componentes estructurales críticos
+### Componentes electrónicos fundamentales
 
-#### 1.5 Cinemática y Dinámica
-- **Cinemática directa**: Posición final a partir de ángulos articulares
-- **Cinemática inversa**: Ángulos necesarios para posición deseada
-- **Dinámica**: Fuerzas y torques necesarios para movimiento
-- **Ecuaciones de Denavit-Hartenberg**
+**Componentes pasivos** (resistencias, capacitores, inductores) no requieren alimentación y se utilizan para condicionar señales, filtrar ruido, y almacenar energía. **Diodos** permiten flujo de corriente en una dirección, siendo fundamentales para rectificación y protección de circuitos.
 
-#### 1.6 Simulación y Pruebas Virtuales
-**Software**:
-- Gazebo (simulación robótica)
-- PyBullet (física)
-- V-REP/CoppeliaSim
-- MATLAB/Simulink
+**Componentes activos** como transistores actúan como interruptores controlados electrónicamente o amplificadores de señal. Los **transistores MOSFET** son particularmente útiles para controlar cargas de potencia (motores) con señales de bajo voltaje procedentes de microcontroladores.
 
-**Pruebas**:
-- Análisis de elementos finitos (FEA)
-- Simulación de movimiento
-- Detección de colisiones
-- Análisis modal
+**Reguladores de voltaje** convierten voltajes de entrada variables o inadecuados en voltajes estables apropiados para componentes sensibles. Los reguladores lineales son simples pero ineficientes, mientras que los reguladores conmutados (buck/boost) son más eficientes para diferencias grandes de voltaje.
 
-#### 1.7 Tolerancias y Ajustes
-- Tolerancias dimensionales (ISO 286)
-- Ajustes deslizantes vs. ajustes por presión
-- Holguras en articulaciones
-- Control de calidad dimensional
+### Plataformas de procesamiento
 
-#### 1.8 Fabricación y Ensamblaje
-**Técnicas**:
-- Impresión 3D (FDM, SLA, SLS)
-- Mecanizado CNC
-- Corte láser
-- Doblado y conformado
+Diferentes tareas requieren diferentes plataformas de procesamiento:
 
-**Habilidades de ensamblaje**:
-- Lectura de planos
-- Uso de herramientas manuales
-- Técnicas de sujeción (tornillos, adhesivos, remaches)
-- Verificación de alineación
+**Arduino** y microcontroladores similares son apropiados para control de bajo nivel: leer sensores simples, generar señales PWM para servomotores, y ejecutar bucles de control en tiempo real. Su simplicidad y gran comunidad los hacen accesibles para prototipado rápido.
 
-### Referencias y Recursos
-- 📖 "Robot Modeling and Control" - Spong, Hutchinson, Vidyasagar
-- 📖 "Introduction to Robotics: Mechanics and Control" - John J. Craig
-- 🎓 Cursos: Coursera "Modern Robotics"
-- 🛠️ Tutoriales: GrabCAD, Thingiverse
+**Raspberry Pi** es una computadora completa en formato compacto, capaz de ejecutar Linux y software complejo. Es apropiada para procesamiento de nivel medio: visión computacional básica, interfaz de usuario, y coordinación de sistemas.
+
+**Nvidia Jetson** proporciona capacidades de procesamiento paralelo (GPU) optimizadas para aprendizaje profundo y visión computacional. Representa la opción de alto rendimiento para tareas que requieren procesamiento intensivo de imágenes o inferencia de redes neuronales.
+
+### Protocolos de comunicación
+
+La coordinación entre múltiples procesadores y dispositivos requiere protocolos de comunicación robustos:
+
+**UART/Serial** es el protocolo más simple, apropiado para comunicación punto a punto a corta distancia.
+
+**I2C** permite conectar múltiples dispositivos con solo dos cables, aunque a velocidades moderadas. Es común en sensores.
+
+**SPI** ofrece velocidades superiores a costa de más conexiones, siendo preferido para dispositivos que transfieren grandes volúmenes de datos.
+
+**CAN bus** proporciona comunicación robusta en entornos con ruido eléctrico, siendo estándar en aplicaciones automotrices.
+
+### Actuadores y su control
+
+**Servomotores** integran motor, reductora y controlador de posición en una unidad compacta. Se controlan mediante señales PWM (modulación por ancho de pulso) que especifican la posición angular deseada.
+
+**Motores DC** con reductora proporcionan torques elevados y se controlan típicamente mediante puentes H que permiten invertir la dirección de rotación.
+
+**Motores paso a paso** permiten posicionamiento preciso sin sensores de retroalimentación, avanzando en incrementos angulares discretos.
+
+### Gestión energética
+
+El diseño del sistema de alimentación debe considerar:
+
+- Consumo máximo de todos los subsistemas simultáneamente activos
+- Selección de baterías con capacidad y tasa de descarga apropiadas
+- Regulación y distribución de voltajes a diferentes subsistemas
+- Protección contra sobrecorriente, cortocircuitos y sobrecarga
+- Monitoreo del estado de carga para gestión autónoma de la batería
+
+### Referencias bibliográficas
+
+- Horowitz, P., & Hill, W. (2015). "The Art of Electronics" (3rd ed.)
+- Scherz, P., & Monk, S. (2013). "Practical Electronics for Inventors"
+- Hughes, J. F. (2016). "Electric Motors and Drives: Fundamentals, Types and Applications"
 
 ---
 
-## 2. ⚡ Electrónica y Electricidad
+## 3. Programación y control
 
-**Carpeta principal**: [`08_Integracion_Hardware/`](../08_Integracion_Hardware/)
+**Carpetas principales:** 
+- [04_Control/](../04_Control/)
+- [03_Planificacion/](../03_Planificacion/)
 
-### Conocimientos Fundamentales
+## 3. Programación y control
 
-#### 2.1 Fundamentos de Electricidad
-- **Ley de Ohm**: V = I × R
-- **Leyes de Kirchhoff**: Corriente y voltaje
-- Potencia eléctrica: P = V × I
-- Circuitos serie y paralelo
-- AC vs DC
+**Carpetas principales:** 
+- [04_Control/](../04_Control/)
+- [03_Planificacion/](../03_Planificacion/)
 
-#### 2.2 Componentes Electrónicos
+El software de control coordina todos los elementos del robot, desde controladores de bajo nivel hasta planificación de alto nivel y toma de decisiones autónomas.
 
-**Componentes pasivos**:
-- Resistencias: limitación de corriente
-- Condensadores: filtrado, almacenamiento energía
-- Inductores: filtrado, almacenamiento magnético
-- Diodos: rectificación, protección
+### Lenguajes de programación
 
-**Componentes activos**:
-- Transistores (BJT, MOSFET): conmutación, amplificación
-- Reguladores de voltaje: LM7805, LM317, buck/boost
-- Optoacopladores: aislamiento
-- Amplificadores operacionales
+Diferentes lenguajes sirven propósitos específicos en el desarrollo del robot:
 
-#### 2.3 Diseño de Circuitos
-**Software de diseño**:
-- KiCad (open source)
-- Eagle/Fusion 360 Electronics
-- EasyEDA
-- Altium Designer (profesional)
+**Python** se utiliza para prototipado rápido, procesamiento de alto nivel, y desarrollo de algoritmos de inteligencia artificial. Bibliotecas como NumPy y SciPy proporcionan capacidades de cálculo numérico, mientras que frameworks especializados (ROS bindings, PyBullet) facilitan la integración con otras herramientas de robótica.
 
-**Proceso**:
-1. Esquemático
-2. Selección de componentes
-3. Layout de PCB
-4. Verificación de reglas (DRC)
-5. Generación de Gerbers
+**C++** es el lenguaje preferido para control en tiempo real y código que debe ejecutarse con máxima eficiencia. La implementación nativa de ROS es en C++, y muchas bibliotecas de robótica están optimizadas para este lenguaje.
 
-#### 2.4 Microcontroladores y Microprocesadores
+**C** se emplea principalmente para programación de microcontroladores, donde el acceso directo a hardware y el control fino de recursos son críticos.
 
-**Plataformas comunes**:
-- **Arduino**: Fácil, comunidad grande
-  - Arduino Mega 2560 (muchos I/O)
-  - Arduino Due (32-bit, más potente)
-  
-- **Raspberry Pi**: Computadora completa
-  - RPi 4 (8GB RAM recomendado)
-  - Puede correr ROS
-  
-- **Nvidia Jetson**: IA y visión computacional
-  - Jetson Nano (económico)
-  - Jetson Xavier (alto rendimiento)
-  
-- **ESP32**: WiFi/Bluetooth integrado
-- **STM32**: Alto rendimiento, bajo consumo
-- **Teensy**: Tiempo real, muchos periféricos
+**MATLAB/Octave** son valiosos para simulación y prototipado de algoritmos de control, aunque típicamente se migra a otros lenguajes para implementación final.
 
-#### 2.5 Comunicación y Protocolos
+### Arquitectura de software
 
-**Protocolos comunes**:
-- **UART/Serial**: Comunicación simple
-- **I2C**: Múltiples dispositivos, 2 cables
-- **SPI**: Alta velocidad, más cables
-- **CAN**: Robusto, automotriz
-- **Ethernet/WiFi**: Red
-- **USB**: Periféricos estándar
+El software de un robot se organiza típicamente en capas jerárquicas:
 
-#### 2.6 Control de Motores
+- **Capa de drivers de hardware:** Interfaz directa con sensores y actuadores
+- **Capa de control de bajo nivel:** Algoritmos PID y control de torque
+- **Capa de control de movimiento:** Cinemática y generación de trayectorias
+- **Capa de planificación:** Toma de decisiones de alto nivel
+- **Capa de interfaz:** Comunicación con usuarios u otros sistemas
 
-**Tipos de motores**:
-- **Servomotores**: Control de posición preciso
-  - Analógicos vs digitales
-  - PWM para control
-  
-- **Motores DC**: Control de velocidad
-  - Brushed vs brushless
-  - Controladores H-bridge (L298N, BTS7960)
-  
-- **Motores paso a paso**: Posicionamiento exacto
-  - Unipolares vs bipolares
-  - Drivers A4988, DRV8825
+Esta organización modular permite que diferentes componentes evolucionen independientemente y facilita la depuración de problemas específicos.
 
-**Controladores recomendados**:
-- PCA9685: 16 servos PWM
-- Adafruit Motor Shield
-- ODrive: Control BLDC avanzado
+### Teoría de control
 
-#### 2.7 Alimentación y Energía
-- Cálculo de consumo energético
-- Selección de baterías (LiPo, Li-Ion)
-- Regulación de voltaje (linear vs switching)
-- Distribución de energía
-- Protección contra sobrecorriente
-- BMS (Battery Management System)
+**Controladores PID** (proporcional-integral-derivativo) son fundamentales en robótica. El término proporcional reacciona a la magnitud del error actual, el integral compensa errores acumulados a lo largo del tiempo, y el derivativo anticipa la tendencia del error. La sintonización apropiada de estas tres ganancias es crucial para lograr un control estable y responsivo.
 
-#### 2.8 Detección y Acondicionamiento de Señales
+**Controladores avanzados** como LQR (regulador lineal cuadrático), MPC (control predictivo basado en modelo), y control adaptativo permiten comportamientos más sofisticados a costa de mayor complejidad computacional. Estos enfoques son especialmente valiosos cuando el sistema tiene múltiples objetivos que deben equilibrarse simultáneamente o cuando los parámetros del sistema no son conocidos con exactitud.
 
-**Sensores comunes**:
-- IMU (MPU6050, BNO055): Orientación
-- Encoder: Posición/velocidad
-- Sensor de corriente (INA219): Monitoreo
-- Sensores de fuerza (FSR, célula de carga)
-- Sensores de proximidad (ultrasónico, IR)
+### ROS (Robot Operating System)
 
-**Acondicionamiento**:
-- Filtrado de ruido
-- Amplificación
-- Conversión ADC/DAC
-- Calibración
+ROS proporciona infraestructura de middleware para sistemas robóticos complejos. Aunque su nombre sugiere lo contrario, no es un sistema operativo sino un framework que facilita la comunicación entre procesos, gestión de paquetes, y abstracción de hardware.
 
-#### 2.9 Soldadura y Montaje
+Los conceptos fundamentales de ROS incluyen:
 
-**Técnicas**:
-- Soldadura con estaño
-- Soldadura SMD (superficie)
-- Hot air rework
-- Crimping de conectores
+- **Nodos:** Procesos individuales que realizan funciones específicas
+- **Topics:** Canales de comunicación asíncrona entre nodos mediante paso de mensajes
+- **Servicios:** Llamadas síncronas de solicitud-respuesta para interacciones que requieren confirmación
+- **Acciones:** Mecanismo para tareas de larga duración con retroalimentación de progreso
+- **Mensajes y parámetros:** Estructuras de datos tipadas y configuración del sistema
 
-**Herramientas**:
-- Estación de soldadura
-- Multímetro
-- Osciloscopio
-- Fuente de alimentación
+ROS incluye herramientas valiosas para visualización (RViz), simulación (Gazebo), grabación y reproducción de datos (rosbag), y depuración de sistemas distribuidos.
 
-#### 2.10 Seguridad Eléctrica
-- Manejo seguro de voltajes
-- Protección contra cortocircuitos
-- Fusibles y circuit breakers
-- Aislamiento y conexión a tierra
-- Normas de seguridad (IEC, UL)
+### Integración de sensores
 
-### Referencias y Recursos
-- 📖 "The Art of Electronics" - Horowitz & Hill
-- 📖 "Practical Electronics for Inventors" - Scherz & Monk
-- 🎓 Cursos: edX "Circuits and Electronics"
-- 🌐 Sitios: All About Circuits, Electronics Tutorials
+El procesamiento de datos sensoriales típicamente sigue un pipeline estructurado:
+
+1. **Adquisición:** Lectura de datos mediante drivers de hardware
+2. **Filtrado:** Eliminación de ruido y valores atípicos
+3. **Calibración:** Corrección de sesgos y no-linealidades
+4. **Fusión sensorial:** Combinación de información de múltiples sensores
+5. **Estimación de estado:** Determinación del estado del robot basándose en datos procesados
+
+La fusión de sensores es particularmente importante cuando múltiples dispositivos proporcionan información complementaria o redundante. Técnicas como filtros de Kalman permiten combinar datos con diferentes niveles de incertidumbre de manera óptima.
+
+### Referencias bibliográficas
+
+- Siegwart, R., Nourbakhsh, I. R., & Scaramuzza, D. (2011). "Introduction to Autonomous Mobile Robots"
+- Thrun, S., Burgard, W., & Fox, D. (2005). "Probabilistic Robotics"
+- Corke, P. (2017). "Robotics, Vision and Control: Fundamental Algorithms in MATLAB"
+- Lynch, K. M., & Park, F. C. (2017). "Modern Robotics: Mechanics, Planning, and Control"
 
 ---
 
-## 3. 💻 Programación y Control
+## Dominios adicionales de conocimiento
 
-**Carpetas principales**: 
-- [`04_Control/`](../04_Control/)
-- [`03_Planificacion/`](../03_Planificacion/)
+Debido a la extensión del material, las siguientes áreas se encuentran documentadas de forma detallada en sus carpetas correspondientes del proyecto:
 
-### Conocimientos Fundamentales
+**4. Percepción** ([01_Percepcion/](../01_Percepcion/)): Procesamiento de sensores visuales, auditivos, táctiles y propioceptivos. Incluye visión computacional, procesamiento de audio, y fusión sensorial.
 
-#### 3.1 Lenguajes de Programación
+**5. Localización y mapeo** ([02_Localizacion_Mapeo/](../02_Localizacion_Mapeo/)): Algoritmos SLAM (Simultaneous Localization and Mapping), filtros de Kalman, particle filters, y construcción de mapas del entorno.
 
-**Python** 🐍
-- Uso: Prototipado rápido, IA/ML, scripts
-- Librerías: NumPy, SciPy, Matplotlib
-- Frameworks: ROS, PyBullet
+**6. Planificación de movimientos** ([03_Planificacion/](../03_Planificacion/)): Planificación de trayectorias, evasión de obstáculos, planificación de tareas de alto nivel, y coordinación de movimientos complejos.
 
-**C++** ⚙️
-- Uso: Control en tiempo real, alto rendimiento
-- Librerías: Eigen, Boost
-- ROS nativo
+**7. Aprendizaje automático** ([05_Aprendizaje_Maquina/](../05_Aprendizaje_Maquina/)): Técnicas de aprendizaje supervisado y no supervisado, aprendizaje por refuerzo, redes neuronales profundas, y su aplicación a problemas de robótica.
 
-**C** 
-- Uso: Microcontroladores, firmware
-- Arduino, STM32
+**8. Visión computacional** ([06_Vision/](../06_Vision/)): Procesamiento de imágenes, detección y reconocimiento de objetos, seguimiento visual, reconstrucción 3D, y técnicas de aprendizaje profundo para visión.
 
-**MATLAB/Octave**
-- Uso: Simulación, prototipado
-- Toolboxes: Robotics, Control Systems
+**9. Simulación y pruebas** ([07_Simulacion_Pruebas/](../07_Simulacion_Pruebas/)): Entornos de simulación, validación de algoritmos, pruebas de integración, y metodologías de testing para sistemas robóticos.
 
-#### 3.2 Desarrollo de Software de Control
+**10. Comunicaciones** ([09_Comunicaciones_Interfaces/](../09_Comunicaciones_Interfaces/)): Protocolos de red, interfaces web, APIs, comunicación humano-robot, y sistemas distribuidos.
 
-**Arquitectura de software**:
-```
-┌─────────────────────────────┐
-│   Interfaz de Usuario       │
-├─────────────────────────────┤
-│   Planificación de Alto     │
-│   Nivel (Decisiones)        │
-├─────────────────────────────┤
-│   Control de Movimiento     │
-│   (Cinemática)              │
-├─────────────────────────────┤
-│   Control de Bajo Nivel     │
-│   (PID, Torque)             │
-├─────────────────────────────┤
-│   Drivers de Hardware       │
-└─────────────────────────────┘
-```
+**11. Gestión de datos** ([10_Datasets_Experimentos/](../10_Datasets_Experimentos/)): Recolección, almacenamiento, y análisis de datos experimentales. Metodologías para experimentos reproducibles.
 
-#### 3.3 Control de Movimiento
+**12. Ética y seguridad** ([12_Etica_Seguridad/](../12_Etica_Seguridad/)): Consideraciones éticas en robótica autónoma, seguridad física y ciberseguridad, transparencia algorítmica, y aspectos regulatorios.
 
-**Cinemática Inversa**:
-```python
-# Pseudocódigo
-def inverse_kinematics(target_position, target_orientation):
-    """
-    Calcula ángulos articulares para alcanzar posición objetivo
-    """
-    joint_angles = solve_ik(target_position, target_orientation)
-    return joint_angles
-```
+---
 
-**Métodos**:
-- Método analítico (cuando es posible)
-- Método numérico (Jacobiano)
-- Método geométrico
+## Conclusiones
 
-#### 3.4 Controladores
+El desarrollo de un robot humanoide requiere la integración de conocimientos de múltiples disciplinas. Si bien cada área tiene profundidad técnica considerable, el verdadero desafío radica en la integración coherente de todos estos elementos en un sistema funcional.
 
-**PID (Proporcional-Integral-Derivativo)**:
-```python
-class PIDController:
-    def __init__(self, Kp, Ki, Kd):
-        self.Kp = Kp  # Ganancia proporcional
-        self.Ki = Ki  # Ganancia integral
-        self.Kd = Kd  # Ganancia derivativa
-        self.integral = 0
-        self.prev_error = 0
-    
-    def update(self, setpoint, measurement, dt):
-        error = setpoint - measurement
-        self.integral += error * dt
-        derivative = (error - self.prev_error) / dt
-        output = (self.Kp * error + 
-                 self.Ki * self.integral + 
-                 self.Kd * derivative)
-        self.prev_error = error
-        return output
-```
+Este documento proporciona un mapa conceptual de los dominios de conocimiento involucrados. La exploración en profundidad de cada área se encuentra en las carpetas correspondientes del proyecto, donde se incluyen implementaciones, experimentos, y documentación técnica detallada.
 
-**Otros controladores**:
-- LQR (Linear Quadratic Regulator)
-- MPC (Model Predictive Control)
-- Control adaptativo
-- Control robusto
+El aprendizaje en robótica es necesariamente iterativo: la teoría se estudia, se implementa en prototipos, se valida experimentalmente, y se refina basándose en los resultados obtenidos. Este ciclo de investigación aplicada constituye la esencia del desarrollo en este campo.
 
-#### 3.5 ROS (Robot Operating System)
+---
 
-**Conceptos clave**:
-- **Nodos**: Procesos independientes
-- **Topics**: Canales de comunicación
-- **Servicios**: Llamadas RPC
-- **Acciones**: Tareas de larga duración
-- **Parámetros**: Configuración
-
-**Ejemplo básico**:
-```python
-import rospy
-from std_msgs.msg import String
-
-def talker():
-    pub = rospy.Publisher('chatter', String, queue_size=10)
-    rospy.init_node('talker', anonymous=True)
-    rate = rospy.Rate(10)  # 10hz
-    while not rospy.is_shutdown():
-        hello_str = "hello world %s" % rospy.get_time()
-        pub.publish(hello_str)
-        rate.sleep()
-```
-
-#### 3.6 Interfaz de Usuario
-
-**GUI Frameworks**:
-- Qt/PyQt: Desktop, profesional
-- Tkinter: Python, simple
-- Web-based: Flask/Django + JavaScript
-- ROS Web: roslibjs
-
-**Visualización**:
-- RViz: Visualización ROS
-- Gazebo: Simulación 3D
-- Matplotlib: Gráficas
-- Plotly/Dash: Web interactivo
-
-#### 3.7 Integración de Sensores
-
-**Pipeline de procesamiento**:
-```
-Sensor → Driver → Filtrado → Fusión → Control
-```
-
-**Ejemplo lectura IMU**:
-```python
-import smbus
-import math
-
-class IMU:
-    def __init__(self, address=0x68):
-        self.bus = smbus.SMBus(1)
-        self.address = address
-        self.init_mpu()
-    
-    def read_accel(self):
-        accel_x = self.read_word_2c(0x3B)
-        accel_y = self.read_word_2c(0x3D)
-        accel_z = self.read_word_2c(0x3F)
-        return (accel_x, accel_y, accel_z)
-```
+**Última actualización:** Marzo de 2026
 
 #### 3.8 Planificación de Movimiento
 
