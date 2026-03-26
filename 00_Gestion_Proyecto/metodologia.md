@@ -72,26 +72,6 @@ Este documento describe la metodología de trabajo, procesos y mejores práctica
 - **C**ould have (Podría tener): Deseables
 - **W**on't have (No tendrá): Fuera de alcance
 
-**Ejemplo**:
-```
-Sprint 5 - Semana Control de Movimiento
-
-MUST:
-- [x] Implementar cinemática inversa básica
-- [x] Calibrar servomotores
-- [ ] Pruebas de movimiento articulaciones
-
-SHOULD:
-- [ ] Optimizar algoritmo IK
-- [ ] Añadir límites suaves
-
-COULD:
-- [ ] Visualización en RViz
-- [ ] Interfaz gráfica de control
-
-WON'T:
-- Aprendizaje por refuerzo (para sprint futuro)
-```
 
 ### Uso de GitHub/Git
 
