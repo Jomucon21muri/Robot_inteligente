@@ -41,21 +41,21 @@ La siguiente tabla sintetiza cómo cada tipo de inteligencia identificado por Ga
 
 Este marco teórico estructura el desarrollo de capacidades del robot a lo largo del proyecto. Cada tipo de inteligencia se mapea a subsistemas específicos del repositorio:
 
-**Inteligencia lingüística-verbal:** Implementada en los módulos de percepción auditiva (01_Percepcion/audio/) y procesamiento de lenguaje natural (05_Aprendizaje_Maquina/nlp/).
+**Inteligencia lingüística-verbal:** Implementada en los módulos de percepción auditiva (02_Percepcion_Vision/sensores/audio/) y procesamiento de lenguaje natural (05_Aprendizaje_IA/nlp/).
 
-**Inteligencia lógico-matemática:** Fundamental en los sistemas de planificación (03_Planificacion/) y herramientas computacionales (11_Herramientas_Utilidades/).
+**Inteligencia lógico-matemática:** Fundamental en los sistemas de planificación (04_Planificacion_Control/planificacion/) y herramientas computacionales (10_Herramientas/).
 
-**Inteligencia espacial-visual:** Desarrollada en visión computacional (06_Vision/) y localización y mapeo simultáneos (02_Localizacion_Mapeo/).
+**Inteligencia espacial-visual:** Desarrollada en visión computacional (02_Percepcion_Vision/vision/) y localización y mapeo simultáneos (03_Localizacion_Mapeo/).
 
-**Inteligencia musical:** Aplicable en procesamiento de audio (01_Percepcion/audio/) y aplicaciones creativas especializadas.
+**Inteligencia musical:** Aplicable en procesamiento de audio (02_Percepcion_Vision/sensores/audio/) y aplicaciones creativas especializadas.
 
-**Inteligencia corporal-kinestésica:** Pilar fundamental del control de movimiento (04_Control/) y la integración con hardware (08_Integracion_Hardware/).
+**Inteligencia corporal-kinestésica:** Pilar fundamental del control de movimiento (04_Planificacion_Control/control/) y la integración con hardware (06_Integracion_Hardware/).
 
-**Inteligencia interpersonal:** Implementada en módulos de interacción social (05_Aprendizaje_Maquina/social_interaction/).
+**Inteligencia interpersonal:** Implementada en módulos de interacción social (05_Aprendizaje_IA/nlp/).
 
 **Inteligencia intrapersonal:** Manifestada en sistemas de toma de decisiones autónomas y gestión de recursos internos.
 
-**Inteligencia naturalista:** Aplicable en sensores químicos y ambientales (01_Percepcion/chemical/) para aplicaciones especializadas.
+**Inteligencia naturalista:** Aplicable en sensores químicos y ambientales (02_Percepcion_Vision/sensores/chemical/) para aplicaciones especializadas.
 
 ### Desarrollo progresivo por fases
 
@@ -92,7 +92,7 @@ Tres áreas presentan desafíos particularmente significativos que requieren inv
 
 ## 1. Mecánica y diseño mecánico
 
-**Carpeta principal:** [08_Integracion_Hardware/](../08_Integracion_Hardware/)
+**Carpeta principal:** [06_Integracion_Hardware/](../06_Integracion_Hardware/)
 
 El diseño mecánico constituye la base física sobre la cual se construyen todas las demás capacidades del robot. Esta disciplina abarca desde los principios fundamentales de la mecánica clásica hasta técnicas avanzadas de optimización estructural.
 
@@ -157,7 +157,7 @@ Antes de fabricar componentes físicos, la simulación permite identificar probl
 
 ## 2. Electrónica y sistemas eléctricos
 
-**Carpeta principal:** [08_Integracion_Hardware/](../08_Integracion_Hardware/)
+**Carpeta principal:** [06_Integracion_Hardware/](../06_Integracion_Hardware/)
 
 Los sistemas electrónicos proporcionan la infraestructura para sensar, procesar y actuar. Esta sección abarca desde fundamentos de circuitos hasta arquitecturas de control distribuido.
 
@@ -228,14 +228,14 @@ El diseño del sistema de alimentación debe considerar:
 ## 3. Programación y control
 
 **Carpetas principales:** 
-- [04_Control/](../04_Control/)
-- [03_Planificacion/](../03_Planificacion/)
+- [04_Planificacion_Control/control/](../04_Planificacion_Control/control/)
+- [04_Planificacion_Control/planificacion/](../04_Planificacion_Control/planificacion/)
 
 ## 3. Programación y control
 
 **Carpetas principales:** 
-- [04_Control/](../04_Control/)
-- [03_Planificacion/](../03_Planificacion/)
+- [04_Planificacion_Control/control/](../04_Planificacion_Control/control/)
+- [04_Planificacion_Control/planificacion/](../04_Planificacion_Control/planificacion/)
 
 El software de control coordina todos los elementos del robot, desde controladores de bajo nivel hasta planificación de alto nivel y toma de decisiones autónomas.
 

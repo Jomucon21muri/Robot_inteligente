@@ -6,12 +6,12 @@ Garantizar que el desarrollo y operación del robot humanoide sean seguros, éti
 
 ## Área de Conocimiento
 
-Este módulo implementa el pilar 11: **Seguridad y Ética** (ver [recursos_conocimientos.md](../00_Gestion_Proyecto/recursos_conocimientos.md)).
+Este módulo implementa el pilar 11: **Seguridad y Ética** (ver [recursos_conocimientos.md](../01_Proyecto/recursos_conocimientos.md)).
 
 ## Estructura del Directorio
 
 ```
-12_Etica_Seguridad/
+11_Etica_Seguridad/
 ├── README.md (este archivo)
 ├── risk_assessment/
 │   ├── fmea_analisis.md        # Failure Mode and Effects Analysis

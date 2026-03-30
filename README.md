@@ -46,8 +46,9 @@ Este repositorio documenta el desarrollo completo de un **robot humanoide desde 
 
 ## 📖 Referencias
 
-- **Papers**: Ver carpeta `10_Datasets_Experimentos/papers/`
-- **Tutoriales**: Ver carpeta `11_Herramientas_Utilidades/tutorials/`
+- **Papers**: Ver carpeta [09_Datasets_Experimentos/](09_Datasets_Experimentos/)
+- **Tutoriales**: Ver carpeta [10_Herramientas/](10_Herramientas/)
+- **Fundamentos teóricos**: Ver carpeta [00_Fundamentos/](00_Fundamentos/)
 - **Libros recomendados**:
   - "Modern Robotics" - Lynch & Park
   - "Probabilistic Robotics" - Thrun, Burgard, Fox

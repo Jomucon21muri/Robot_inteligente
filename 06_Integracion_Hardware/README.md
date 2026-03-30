@@ -6,7 +6,7 @@ Esta carpeta documenta todos los aspectos de hardware del robot humanoide, inclu
 
 ## Áreas de Conocimiento Cubiertas
 
-Este módulo integra los siguientes pilares de conocimiento (ver [recursos_conocimientos.md](../00_Gestion_Proyecto/recursos_conocimientos.md)):
+Este módulo integra los siguientes pilares de conocimiento (ver [recursos_conocimientos.md](../01_Proyecto/recursos_conocimientos.md)):
 
 1. **Mecánica y Diseño Mecánico**: Estructura, articulaciones, CAD
 2. **Electrónica y Electricidad**: Circuitos, sensores, actuadores
@@ -17,7 +17,7 @@ Este módulo integra los siguientes pilares de conocimiento (ver [recursos_conoc
 ## Estructura del Directorio
 
 ```
-08_Integracion_Hardware/
+06_Integracion_Hardware/
 ├── README.md (este archivo)
 ├── mecanica/
 │   ├── disenos_cad/        # Modelos 3D (SolidWorks, Fusion 360)

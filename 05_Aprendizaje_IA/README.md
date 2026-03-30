@@ -6,12 +6,12 @@ Implementar capacidades de inteligencia artificial en el robot humanoide, incluy
 
 ## Área de Conocimiento
 
-Este módulo implementa el pilar 6: **Inteligencia Artificial y Aprendizaje Automático** (ver [recursos_conocimientos.md](../00_Gestion_Proyecto/recursos_conocimientos.md)).
+Este módulo implementa el pilar 6: **Inteligencia Artificial y Aprendizaje Automático** (ver [recursos_conocimientos.md](../01_Proyecto/recursos_conocimientos.md)).
 
 ## Estructura del Directorio
 
 ```
-05_Aprendizaje_Maquina/
+05_Aprendizaje_IA/
 ├── README.md (este archivo)
 ├── supervised/
 │   ├── clasificacion/       # Clasificación de objetos, gestos

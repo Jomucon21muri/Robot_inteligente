@@ -7,7 +7,7 @@ Esta sección contiene la documentación relacionada  los marcos metodológicos,
 ## Estructura de la documentación
 
 ```
-00_Gestion_Proyecto/
+01_Proyecto/
 ├── README.md (este archivo)
 ├── recursos_conocimientos.md
 └── metodologia.md
