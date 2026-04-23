@@ -1,10 +1,10 @@
-# 🔧 Integración de Hardware - Robot Humanoide
+# 🔧 Integración de hardware - robot humanoide
 
 ## Propósito
 
 Esta carpeta documenta todos los aspectos de hardware del robot humanoide, incluyendo diseño mecánico, electrónica, materiales, energía y mecatrónica. Es el núcleo físico del proyecto.
 
-## Áreas de Conocimiento Cubiertas
+## Áreas de conocimiento cubiertas
 
 Este módulo integra los siguientes pilares de conocimiento (ver [recursos_conocimientos.md](../01_Proyecto/recursos_conocimientos.md)):
 
@@ -14,7 +14,7 @@ Este módulo integra los siguientes pilares de conocimiento (ver [recursos_conoc
 4. **Materiales y Fabricación**: Selección de materiales, impresión 3D, mecanizado
 5. **Baterías y Energía**: Gestión de energía, autonomía
 
-## Estructura del Directorio
+## Estructura del directorio
 
 ```
 06_Integracion_Hardware/
@@ -55,9 +55,9 @@ Este módulo integra los siguientes pilares de conocimiento (ver [recursos_conoc
     └── emergency_procedures/ # Procedimientos de emergencia
 ```
 
-## Componentes Principales del Robot Humanoide
+## Componentes principales del robot humanoide
 
-### Sistema Mecánico
+### Sistema mecánico
 
 **Grados de Libertad (DOF)**:
 - Cabeza: 2-3 DOF (pan, tilt, roll opcional)
@@ -72,7 +72,7 @@ Este módulo integra los siguientes pilares de conocimiento (ver [recursos_conoc
 - Carcasas: PLA, ABS, PETG (impresión 3D)
 - Partes móviles: Nylon, TPU (flexible)
 
-### Sistema Electrónico
+### Sistema electrónico
 
 **Cerebro**:
 - **Principal**: Raspberry Pi 4 (8GB) o Nvidia Jetson Nano
@@ -115,9 +115,9 @@ Este módulo integra los siguientes pilares de conocimiento (ver [recursos_conoc
 - Bluetooth: Periféricos, gamepad
 - Ethernet: Opcional para conexión estable
 
-## Guías de Construcción
+## Guías de construcción
 
-### Fase 1: Diseño (Meses 3-4)
+### Fase 1: diseño (meses 3-4)
 
 1. **Diseño CAD**:
    - Crear modelo completo en SolidWorks/Fusion 360
@@ -133,7 +133,7 @@ Este módulo integra los siguientes pilares de conocimiento (ver [recursos_conoc
    - Análisis de elementos finitos (FEA) en partes críticas
    - Simulación cinemática en Gazebo/PyBullet
 
-### Fase 2: Fabricación (Meses 5-6)
+### Fase 2: fabricación (meses 5-6)
 
 1. **Impresión 3D**:
    - Configuración óptima por material
@@ -149,7 +149,7 @@ Este módulo integra los siguientes pilares de conocimiento (ver [recursos_conoc
    - Verificar alineación de articulaciones
    - Instalación de rodamientos
 
-### Fase 3: Electrónica (Mes 6)
+### Fase 3: electrónica (mes 6)
 
 1. **Montaje de Componentes**:
    - Soldar PCB si hay diseños personalizados
@@ -166,7 +166,7 @@ Este módulo integra los siguientes pilares de conocimiento (ver [recursos_conoc
    - Test de alimentación (sin motores)
    - Verificar comunicación de sensores
 
-### Fase 4: Integración (Mes 6)
+### Fase 4: integración (mes 6)
 
 1. **Prueba de Motores**:
    - Un motor a la vez
@@ -183,7 +183,7 @@ Este módulo integra los siguientes pilares de conocimiento (ver [recursos_conoc
    - Pruebas de estrés
    - Validación de seguridad
 
-## Checklist de Seguridad Pre-Prueba
+## Checklist de seguridad pre-prueba
 
 **⚠️ OBLIGATORIO antes de cada sesión de pruebas**:
 
@@ -198,7 +198,7 @@ Este módulo integra los siguientes pilares de conocimiento (ver [recursos_conoc
 - [ ] **Límites**: Rangos de movimiento configurados y probados
 - [ ] **Comunicación**: Canal de comunicación confiable (no intermitente)
 
-## Especificaciones Técnicas Objetivo
+## Especificaciones técnicas objetivo
 
 | Parámetro | Valor Objetivo |
 |-----------|----------------|
@@ -213,11 +213,11 @@ Este módulo integra los siguientes pilares de conocimiento (ver [recursos_conoc
 
 ---
 
-## ⚡ Sistema de Energía (Metabolismo Artificial)
+## ⚡ Sistema de energía (metabolismo artificial)
 
 El sistema de energía del robot humanoide simula el metabolismo biológico, gestionando la obtención, almacenamiento, distribución y optimización de energía para todas sus funciones.
 
-### 1. ⚡ Generación y Almacenamiento de Energía
+### 1. ⚡ Generación y almacenamiento de energía
 
 #### Qué se simula
 - Cómo el robot obtiene y gestiona su energía (equivalente a la alimentación en humanos)
@@ -351,7 +351,7 @@ class BatteryPlugin:
 
 ---
 
-### 2. 🔋 Regulación Energética (Homeostasis)
+### 2. 🔋 Regulación energética (homeostasis)
 
 #### Qué se simula
 - Balance energético dinámico según las tareas realizadas
@@ -484,7 +484,7 @@ def train_energy_predictor(model, historical_data):
 
 ---
 
-### 3. ♻️ Recuperación y Eficiencia (Metabolismo Avanzado)
+### 3. ♻️ Recuperación y eficiencia (metabolismo avanzado)
 
 #### Qué se simula
 - Capacidad de recuperar energía o usar fuentes alternativas
@@ -712,7 +712,7 @@ rostopic echo /energy/system_consumption
 
 ---
 
-## Herramientas Necesarias
+## Herramientas necesarias
 
 ### Software
 - **CAD**: SolidWorks, Fusion 360, FreeCAD
@@ -729,7 +729,7 @@ rostopic echo /energy/system_consumption
 - Herramientas de crimping
 - Osciloscopio (opcional pero útil)
 
-## Bill of Materials (BOM) Estimado
+## Bill of materials (BOM) estimado
 
 Ver archivo detallado en `electronica/bom/bom_completo.csv`
 
@@ -742,14 +742,14 @@ Ver archivo detallado en `electronica/bom/bom_completo.csv`
 - **Energía**: $100-200 (baterías, reguladores, BMS)
 - **Herramientas**: $200-900 (si no se tienen)
 
-## Proveedores Recomendados
+## Proveedores recomendados
 
 - **Electrónica**: Adafruit, SparkFun, Pololu, Digi-Key, Mouser
 - **Mecánica**: McMaster-Carr, Misumi, OpenBuilds
 - **Impresión 3D**: Prusa Research, Ultimaker, local makers
 - **Actuadores**: Robotis (Dynamixel), Servo City, AliExpress (económico)
 
-## Troubleshooting Común
+## Troubleshooting común
 
 ### Problema: Servo vibra o no mantiene posición
 **Soluciones**:
@@ -778,7 +778,7 @@ Ver archivo detallado en `electronica/bom/bom_completo.csv`
 - Filtrado (complementary filter, Kalman)
 - Montaje rígido (sin vibraciones)
 
-## Próximos Pasos
+## Próximos pasos
 
 1. **Completar diseño CAD** de todas las piezas
 2. **Validar BOM** y realizar pedidos
@@ -786,9 +786,9 @@ Ver archivo detallado en `electronica/bom/bom_completo.csv`
 4. **Configurar entorno de desarrollo** (Arduino IDE, ROS, etc.)
 5. **Crear prototipos pequeños** (probar una articulación completa)
 
-## Referencias y Recursos
+## Referencias y recursos
 
-### Proyectos Open Source Similares
+### Proyectos open source similares
 - InMoov: Robot humanoide DIY completo
 - Poppy Project: Plataforma educativa modular
 - THOR (UCLA): Robot humanoide open source

@@ -1,14 +1,14 @@
-# Fundamentos de Programación y Control para Robótica Humanoide
+# Fundamentos de programación y control para robótica humanoide
 
-## Resumen Ejecutivo
+## Resumen ejecutivo
 
 La programación y control constituyen el cerebro cognitivo del robot humanoide, traduciendo objetivos de alto nivel en comandos específicos de actuadores. Este documento presenta los fundamentos teóricos y prácticos para implementar sistemas de control robótico a nivel doctoral, abarcando desde control de bajo nivel hasta planificación de movimiento y arquitecturas de software.
 
-## 1. Fundamentos de Programación para Robótica
+## 1. Fundamentos de programación para robótica
 
-### 1.1 Lenguajes de Programación Relevantes
+### 1.1 Lenguajes de programación relevantes
 
-#### 1.1.1 C++ para Sistemas Embebidos
+#### 1.1.1 C++ para sistemas embebidos
 
 **Características clave**:
 - Control de bajo nivel y acceso directo a hardware
@@ -101,7 +101,7 @@ public:
 };
 ```
 
-#### 1.1.2 Python para Algoritmos y Prototipado Rápido
+#### 1.1.2 Python para algoritmos y prototipado rápido
 
 **Ventajas**:
 - Sintaxis clara y expresiva
@@ -521,9 +521,9 @@ if __name__ == '__main__':
         pass
 ```
 
-### 1.2 Paradigmas de Programación
+### 1.2 Paradigmas de programación
 
-#### 1.2.1 Programación Orientada a Objetos (POO)
+#### 1.2.1 Programación orientada a objetos (POO)
 
 **Principios SOLID**:
 1. **Single Responsibility**: Cada clase una sola responsabilidad
@@ -652,7 +652,7 @@ datos = sistema.leer_todos()
 print(datos)
 ```
 
-#### 1.2.2 Programación Reactiva y Event-Driven
+#### 1.2.2 Programación reactiva y event-driven
 
 Para sistemas robóticos con múltiples fuentes de eventos asíncronos.
 
@@ -704,7 +704,7 @@ async Main():
 # asyncio.run(main())
 ```
 
-## 2. Teoría de Control
+## 2. Teoría de control
 
 ### 2.1 Control PID
 
@@ -837,7 +837,7 @@ Kp, Ki, Kd = ziegler_nichols(Ku_critico, Tu_oscilacion)
 print(f"Ganancias PID: Kp={Kp:.2f}, Ki={Ki:.2f}, Kd={Kd:.2f}")
 ```
 
-### 2.2 Control en Espacio de Estados
+### 2.2 Control en espacio de estados
 
 Representación moderna de sistemas dinámicos:
 
@@ -993,7 +993,7 @@ plt.savefig('lqr_pendulo.png')
 print("Gráfica guardada como 'lqr_pendulo.png'")
 ```
 
-### 2.3 Control Predictivo por Modelo (MPC)
+### 2.3 Control predictivo por modelo (MPC)
 
 Control avanzado que considera restricciones y optimiza trayectoria futura.
 
@@ -1157,9 +1157,9 @@ plt.savefig('mpc_tracking.png')
 print("Gráfica MPC guardada")
 ```
 
-## 3. Diseño Ergonómico y Biomecánica
+## 3. Diseño ergonómico y biomecánica
 
-### 3.1 Biomecánica del Movimiento Humano
+### 3.1 Biomecánica del movimiento humano
 
 **Objetivos**:
 - Replicar movimientos naturales
@@ -1305,7 +1305,7 @@ gait = GaitGenerator(step_length=0.5, step_height=0.05, step_duration=0.8)
 gait.visualize()
 ```
 
-### 3.2 Centro de Masa y Estabilidad
+### 3.2 Centro de masa y estabilidad
 
 **Zero Moment Point (ZMP)**:
 Criterio fundamental para estabilidad en locomoción bípeda.
@@ -1368,9 +1368,9 @@ poligono = [(-0.1, -0.15), (0.1, -0.15), (0.1, 0.15), (-0.1, 0.15)]
 print(f"Estable: {estabilidad_estatica(zmp, poligono)}")
 ```
 
-## 4. Interfaz de Usuario y Comportamiento
+## 4. Interfaz de usuario y comportamiento
 
-### 4.1 Máquinas de Estados Finitos (FSM)
+### 4.1 Máquinas de estados finitos (FSM)
 
 Para gestionar comportamientos complejos del robot.
 
@@ -1434,9 +1434,9 @@ fsm.transicion(EstadoRobot.AGACHADO)
 fsm.transicion(EstadoRobot.LEVANTANDOSE)
 ```
 
-## 5. Simulación y Testing
+## 5. Simulación y testing
 
-### 5.1 Test Unitarios para Código de Control
+### 5.1 Test unitarios para código de control
 
 ```python
 import unittest
@@ -1506,4 +1506,4 @@ if __name__ == '__main__':
 
 El dominio de programación y control es esencial para transformar el hardware del robot humanoide en un sistema autónomo funcional. La combinación de algoritmos de control clásicos (PID), modernos (LQR, MPC), generación de trayectorias y arquitecturas de software robustas permite crear robots humanoides capaces de interactuar de manera segura y eficiente con entornos dinámicos.
 
-**Próximo módulo**: [Aprendizaje Automático](../05_Aprendizaje_Maquina/) para dotar al robot de capacidades de percepción y adaptación inteligentes.
+**Próximo módulo**: [Aprendizaje automático](../05_Aprendizaje_IA/) para dotar al robot de capacidades de percepción y adaptación inteligentes.

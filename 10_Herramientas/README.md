@@ -1,4 +1,4 @@
-# Herramientas y Utilidades
+# Herramientas y utilidades
 
 Propósito:
 - Almacenar herramientas de apoyo: scripts de despliegue, wrappers, utilidades de visualización y benchmarking.

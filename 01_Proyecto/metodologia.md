@@ -409,4 +409,4 @@ El diseño del prototipo debe considerar las implicaciones éticas de su operaci
 
 **Nota final:** Esta metodología constituye un marco flexible que debe adaptarse según las necesidades específicas del proyecto y las lecciones aprendidas durante su ejecución. La rigidez metodológica puede ser tan perjudicial como la falta de método; el balance apropiado se encuentra mediante la reflexión continua sobre qué aspectos de la metodología están aportando valor y cuáles requieren ajustes.
 
-**Última actualización:** Marzo de 2026
+**Última actualización:** Abril de 2026

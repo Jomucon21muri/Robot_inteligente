@@ -1,4 +1,4 @@
-# 🧠👁️ Percepción y Visión - Sentidos del Robot Humanoide
+# 🧐👁️ Percepción y visión - sentidos del robot humanoide
 
 ## Propósito
 
@@ -8,7 +8,7 @@ El sistema integra **visión computacional avanzada** como el sentido primario, 
 
 ---
 
-## 🌐 Visión General: Los 7 Sentidos Robóticos
+## 🌐 Visión general: los 7 sentidos robóticos
 
 El robot humanoide integra los siguientes sistemas sensoriales:
 
@@ -24,7 +24,7 @@ El robot humanoide integra los siguientes sistemas sensoriales:
 
 ---
 
-## 📂 Estructura del Directorio
+## 📂 Estructura del directorio
 
 ```
 02_Percepcion_Vision/
@@ -74,7 +74,7 @@ El robot humanoide integra los siguientes sistemas sensoriales:
 
 ## 👁️ Visión
 
-### Capacidades del Sistema Visual
+### Capacidades del sistema visual
 
 | Capacidad | Descripción | Tecnología Principal |
 |-----------|-------------|---------------------|
@@ -87,13 +87,13 @@ El robot humanoide integra los siguientes sistemas sensoriales:
 | **Seguimiento** | Rastrear objetos en movimiento | SORT, DeepSORT |
 | **Gestos** | Interpretar gestos humanos | MediaPipe, CNN |
 
-### Hardware Recomendado
+### Hardware recomendado
 - **Cámaras RGB**: Raspberry Pi Camera V2, Logitech C920
 - **Cámaras de profundidad**: Intel RealSense D435i, Kinect v2
 - **Estéreo**: Dual Pi Camera setup
 - **Resolución**: Mínimo 720p @ 30fps
 
-### Ejemplo: Detección de Objetos con YOLO
+### Ejemplo: detección de objetos con YOLO
 
 ```python
 from ultralytics import YOLO
@@ -167,7 +167,7 @@ print(result['text'])
 
 ---
 
-## 🔗 Conexiones con Otros Módulos
+## 🔗 Conexiones con otros módulos
 
 - **[03_Localizacion_Mapeo](../03_Localizacion_Mapeo/)**: Usa datos de visión y sensores para SLAM
 - **[04_Planificacion_Control](../04_Planificacion_Control/)**: Recibe datos sensoriales para control
@@ -178,13 +178,13 @@ print(result['text'])
 
 ## 📚 Recursos
 
-### Datasets de Visión
+### Datasets de visión
 - **COCO**: Common Objects in Context
 - **ImageNet**: Clasificación de imágenes
 - **KITTI**: Conducción autónoma y SLAM
 - **LFW**: Labeled Faces in the Wild
 
-### Librerías Principales
+### Librerías principales
 ```python
 import cv2                      # OpenCV
 from ultralytics import YOLO    # YOLO v8
@@ -197,7 +197,7 @@ import mediapipe as mp          # Pose/hand tracking
 
 ---
 
-## 🎯 Próximos Pasos
+## 🎯 Próximos pasos
 
 1. Implementar sistema de detección de objetos en tiempo real
 2. Calibrar cámaras estéreo para percepción de profundidad

@@ -1,16 +1,16 @@
-# Fundamentos de Mecánica y Diseño Mecánico para Robótica Humanoide
+# Fundamentos de mecánica y diseño mecánico para robótica humanoide
 
-## Resumen Ejecutivo
+## Resumen ejecutivo
 
 El diseño mecánico de un robot humanoide constituye la base estructural sobre la cual se integran todos los demás sistemas. Este documento presenta los fundamentos teóricos y aplicados necesarios para el diseño, análisis y construcción de la estructura mecánica de robots humanoides, con énfasis en la replicación de movimientos antropomórficos y la optimización estructural.
 
-## 1. Fundamentos Teóricos de Mecánica Aplicada
+## 1. Fundamentos teóricos de mecánica aplicada
 
-### 1.1 Principios Básicos de Mecánica
+### 1.1 Principios básicos de mecánica
 
 La mecánica clásica newtoniana gobierna el comportamiento físico del robot humanoide. Los principios fundamentales incluyen:
 
-#### 1.1.1 Leyes del Movimiento de Newton
+#### 1.1.1 Leyes del movimiento de Newton
 
 **Primera Ley (Inercia)**:
 Un cuerpo permanece en su estado de reposo o movimiento rectilíneo uniforme a menos que actúe sobre él una fuerza neta.
@@ -32,7 +32,7 @@ Para cada acción existe una reacción igual y opuesta.
 
 Aplicación: Fuerzas de contacto pie-suelo durante la marcha bípeda, diseño de sistemas de agarre.
 
-#### 1.1.2 Torque y Momento de Fuerza
+#### 1.1.2 Torque y momento de fuerza
 
 El torque ($\tau$) es la tendencia de una fuerza a producir rotación alrededor de un eje:
 
@@ -91,7 +91,7 @@ print(f"En kg·cm: {torque_requerido * 100 / 9.81:.2f} kg·cm")
 
 Output esperado: ~2.1 N·m ≈ 21.4 kg·cm
 
-#### 1.1.3 Fricción y Eficiencia Mecánica
+#### 1.1.3 Fricción y eficiencia mecánica
 
 **Fricción estática**: $f_s \leq \mu_s N$
 **Fricción cinética**: $f_k = \mu_k N$
@@ -114,9 +114,9 @@ Valores típicos:
 - Transmisión por correa: 90-95%
 - Husillo de bolas: 85-95%
 
-### 1.2 Cinemática y Dinámica
+### 1.2 Cinemática y dinámica
 
-#### 1.2.1 Cinemática Directa
+#### 1.2.1 Cinemática directa
 
 La cinemática estudia el movimiento sin considerar las fuerzas que lo causan.
 
@@ -239,7 +239,7 @@ pos_l, _ = brazo.cinematica_directa(0, np.pi/2, 0)
 print(f"Posición en 'L': {pos_l}")
 ```
 
-#### 1.2.2 Cinemática Inversa
+#### 1.2.2 Cinemática inversa
 
 Problema: Dados la posición y orientación deseadas del efector final, calcular los ángulos articulares necesarios.
 
@@ -329,7 +329,7 @@ else:
     print("No se encontró solución")
 ```
 
-#### 1.2.3 Dinámica de Robots
+#### 1.2.3 Dinámica de robots
 
 La dinámica relaciona fuerzas/torques con movimientos. Dos formulaciones principales:
 
@@ -431,13 +431,13 @@ print(f"Posición final: {np.degrees(theta[-1]):.2f}°")
 print(f"Velocidad final: {theta_dot[-1]:.2f} rad/s")
 ```
 
-## 2. Diseño de Articulaciones
+## 2. Diseño de articulaciones
 
-### 2.1 Tipos de Articulaciones
+### 2.1 Tipos de articulaciones
 
 Las articulaciones son las conexiones móviles entre eslabones. Principales tipos:
 
-#### 2.1.1 Articulación de Revolución (R)
+#### 2.1.1 Articulación de revolución (R)
 
 **Características**:
 - 1 grado de libertad (rotación alrededor de un eje)
@@ -463,14 +463,14 @@ Las articulaciones son las conexiones móviles entre eslabones. Principales tipo
 - Rigidez: Minimizar flexibilidad no deseada
 - Backlash: Reducir juego mecánico (<0.5°)
 
-#### 2.1.2 Articulación Prismática (P)
+#### 2.1.2 Articulación prismática (P)
 
 **Características**:
 - 1 DOF (traslación lineal)
 - Menos común en humanoides, más en manipuladores industriales
 - Ejemplo: Extensión telescópica de brazo
 
-#### 2.1.3 Articulación Esférica (S)
+#### 2.1.3 Articulación esférica (S)
 
 **Características**:
 - 3 DOF (rotación en 3 ejes)
@@ -481,7 +481,7 @@ Las articulaciones son las conexiones móviles entre eslabones. Principales tipo
 - Usar 3 articulaciones R en configuración ortogonal
 - Evitar singularidades (gimbal lock)
 
-### 2.2 Diseño Biomimético de Articulaciones
+### 2.2 Diseño biomimético de articulaciones
 
 Los robots humanoides buscan replicar los rangos de movimiento humanos:
 
@@ -506,7 +506,7 @@ Los robots humanoides buscan replicar los rangos de movimiento humanos:
 | Tobillo | Dorsiflexión/plantarflexión | -20 a 45° | 1 DOF |
 | | Inversión/eversión | ±30° | 1 DOF (opcional) |
 
-### 2.3 Selección de Rodamientos y Bujes
+### 2.3 Selección de rodamientos y bujes
 
 **Rodamientos de bolas**:
 - Fricción ultra-baja ($\mu \approx 0.001$)
@@ -566,7 +566,7 @@ print(f"Capacidad de carga dinámica requerida: {C10:.1f} N")
 
 ## 3. Modelado 3D y CAD
 
-### 3.1 Software CAD para Robótica
+### 3.1 Software CAD para robótica
 
 **Opciones principales**:
 
@@ -585,7 +585,7 @@ print(f"Capacidad de carga dinámica requerida: {C10:.1f} N")
    - Módulo de robots
    - Comunidad activa
 
-### 3.2 Flujo de Trabajo de Diseño
+### 3.2 Flujo de trabajo de diseño
 
 ```
 1. Concept Sketching
@@ -612,7 +612,7 @@ print(f"Capacidad de carga dinámica requerida: {C10:.1f} N")
    └── Export: STL para 3D, DXF para CNC
 ```
 
-### 3.3 Modelado Paramétrico
+### 3.3 Modelado paramétrico
 
 Ventaja: Modificaciones rápidas ajustando parámetros
 
@@ -632,7 +632,7 @@ alcance_maximo = L1_hombro_codo + L2_codo_muneca
 factor_seguridad = 1.5
 ```
 
-### 3.4 Análisis de Elementos Finitos (FEA)
+### 3.4 Análisis de elementos finitos (FEA)
 
 **Objetivo**: Verificar que las piezas soportan cargas sin fallar
 
@@ -685,9 +685,9 @@ print(f"Factor de seguridad: {fs:.2f}")
 print(f"Aprueba: {'SĂ­' if ok else 'NO - Rediseñar'}")
 ```
 
-## 4. Selección de Materiales
+## 4. Selección de materiales
 
-### 4.1 Materiales para Impresión 3D
+### 4.1 Materiales para impresión 3D
 
 **Comparativa de materiales termoplásticos**:
 
@@ -719,7 +719,7 @@ Prototipos rápidos:
   → PLA (fácil impresión, bajo costo)
 ```
 
-### 4.2 Materiales Metálicos
+### 4.2 Materiales metálicos
 
 **Para piezas mecanizadas críticas**:
 
@@ -742,7 +742,7 @@ Prototipos rápidos:
 - Bajo fricción
 - Uso: Bujes, tuercas autoblocantes
 
-### 4.3 Optimización de Peso vs. Resistencia
+### 4.3 Optimización de peso vs. resistencia
 
 **Estrategias**:
 
@@ -801,9 +801,9 @@ masa = calcular_masa_pieza(volumen_antebrazo, 'PETG', infill=0.25)
 print(f"Masa estimada del antebrazo: {masa:.1f} g")
 ```
 
-## 5. Tolerancias y Ajustes
+## 5. Tolerancias y ajustes
 
-### 5.1 Sistema de Ajustes ISO
+### 5.1 Sistema de ajustes ISO
 
 Las tolerancias determinan qué tan precisas deben ser las dimensiones.
 
@@ -826,7 +826,7 @@ Para un diámetro nominal de 10 mm:
 - Holgura mínima: 10.000 - 9.995 = 0.005 mm
 - Holgura máxima: 10.015 - 9.986 = 0.029 mm
 
-### 5.2 Tolerancias en Impresión 3D
+### 5.2 Tolerancias en impresión 3D
 
 **Precisión dimensional típica**:
 - FDM (impresión de filamento): ±0.2 - 0.5 mm
@@ -866,7 +866,7 @@ print(f"Diseñar agujero: Ø{d_agujero:.2f} mm")
 print(f"Diseñar eje: Ø{d_eje:.2f} mm")
 ```
 
-### 5.3 Post-Procesamiento para Mayor Precisión
+### 5.3 Post-procesamiento para mayor precisión
 
 **Técnicas**:
 - **Taladrado/escariado**: Mejora precisión de agujeros
@@ -874,9 +874,9 @@ print(f"Diseñar eje: Ø{d_eje:.2f} mm")
 - **Lijado/pulido**: Mejora acabado superficial
 - **Vapor de acetona** (solo ABS): Suaviza superficie
 
-## 6. Fabricación y Ensamblaje
+## 6. Fabricación y ensamblaje
 
-### 6.1 Impresión 3D - Best Practices
+### 6.1 Impresión 3D - best practices
 
 **Configuración óptima (FDM)**:
 
@@ -960,7 +960,7 @@ Para piezas metálicas críticas:
 8. Instalación de covers/carcasas
 ```
 
-## 7. Simulación y Pruebas Virtuales
+## 7. Simulación y pruebas virtuales
 
 ### 7.1 Simulación en Gazebo/PyBullet
 
@@ -1003,7 +1003,7 @@ for step in range(10000):
 p.disconnect()
 ```
 
-### 7.2 Verificación de Colisiones
+### 7.2 Verificación de colisiones
 
 Detectar interferencias entre partes:
 
@@ -1022,9 +1022,9 @@ def verificar_colisiones_self(robot_id):
     return False
 ```
 
-## 8. Referencias y Recursos
+## 8. Referencias y recursos
 
-### 8.1 Libros Fundamentales
+### 8.1 Libros fundamentales
 
 1. **"Robot Modeling and Control"** - Spong, Hutchinson, Vidyasagar
    - Cinemática, dinámica, control - nivel académico riguroso
@@ -1035,7 +1035,7 @@ def verificar_colisiones_self(robot_id):
 3. **"Modern Robotics"** - Lynch y Park
    - Enfoque geométrico moderno, con software complementario
 
-### 8.2 Software y Herramientas
+### 8.2 Software y herramientas
 
 - **SolidWorks**: CAD profesional
 - **Fusion 360**: CAD + CAM + simulación
@@ -1044,7 +1044,7 @@ def verificar_colisiones_self(robot_id):
 - **ROS (Robot Operating System)**: Framework de software
 - **Gazebo / PyBullet**: Simulación física
 
-### 8.3 Estándares Relevantes
+### 8.3 Estándares relevantes
 
 - **ISO 8373**: Vocabulario de robótica
 - **ISO 9283**: Pruebas de performance de robots
@@ -1065,4 +1065,4 @@ El diseño mecánico de un robot humanoide requiere una integración profunda de
 
 Este conocimiento constituye la base mecánica sobre la cual se construyen los sistemas electrónicos, de control e inteligencia artificial del robot humanoide completo.
 
-**Próximos pasos**: Ver [electrónica y control](#) para la integración de actuadores, sensores y sistemas embebidos.
+**Próximos pasos**: Ver [electrónica](electronica.md) y [programación y control](programacion_control.md) para la integración de actuadores, sensores y sistemas embebidos.

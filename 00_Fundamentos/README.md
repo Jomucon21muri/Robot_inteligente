@@ -1,10 +1,10 @@
-# 📚 Fundamentos Teóricos
+# 📚 Fundamentos teóricos
 
 Esta carpeta centraliza todos los conocimientos teóricos fundamentales necesarios para el desarrollo del robot humanoide. Los conceptos aquí documentados se aplican transversalmente en todos los módulos del proyecto.
 
 ## 📂 Contenidos
 
-### 1. [Programación y Control](programacion_control.md)
+### 1. [Programación y control](programacion_control.md)
 Fundamentos de programación para robótica, incluyendo:
 - Lenguajes de programación (C++, Python)
 - Sistemas de control en tiempo real
@@ -25,7 +25,7 @@ Fundamentos de diseño mecánico:
 - Materiales y manufactura
 - Grados de libertad
 
-### 4. [Inteligencia Artificial y Machine Learning](ia_ml.md)
+### 4. [Inteligencia artificial y machine learning](ia_ml.md)
 Fundamentos de IA y ML aplicados a robótica:
 - Aprendizaje supervisado y no supervisado
 - Redes neuronales profundas
@@ -37,7 +37,7 @@ Referencias y recursos académicos (en desarrollo)
 
 ---
 
-## 🔗 Conexión con Módulos Prácticos
+## 🔗 Conexión con módulos prácticos
 
 Estos fundamentos teóricos se aplican en:
 - **[02_Percepcion_Vision](../02_Percepcion_Vision/)**: Procesamiento sensorial
@@ -45,7 +45,7 @@ Estos fundamentos teóricos se aplican en:
 - **[05_Aprendizaje_IA](../05_Aprendizaje_IA/)**: Algoritmos de IA
 - **[06_Integracion_Hardware](../06_Integracion_Hardware/)**: Integración física
 
-## 📖 Uso Recomendado
+## 📖 Uso recomendado
 
 1. Revisar estos fundamentos **antes** de trabajar en módulos específicos
 2. Consultar como referencia durante el desarrollo

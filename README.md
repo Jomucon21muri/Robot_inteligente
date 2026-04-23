@@ -1,4 +1,4 @@
-# 🤖 Protecto de robot inteligente - PIyPFP  
+# Protecto de robot inteligente - PIyPFP  
 
 Este proyecto tiene como objetivo explorar, diseñar e implementar modelos de Inteligencia Artificial aplicados a la robótica humanoide, integrando todos los elementos de control necesarios para que los robots puedan percibir, razonar, decidir y actuar en entornos dinámicos.
 
@@ -6,9 +6,9 @@ La IA aplicada a robots no solo permite que ejecuten tareas programadas, sino qu
 
 Este trabajo constituye la base fundamental para **Plan de Investigación y Plan de Formación Personal (PIyPFP) centradas en la integración de la Inteligencia Artificial en robots de servicio**. El objetivo es avanzar en el desarrollo de sistemas robóticos autónomos capaces de operar eficientemente en entornos humanos, mejorando la interacción, adaptabilidad y rendimiento de los robots de servicio en aplicaciones del mundo real.
 
-## 📖 Sobre este proyecto
+## Sobre este proyecto
 
-### Complejidad de la Robótica Humanoide
+### Complejidad de la robótica humanoide
 
 La construcción de un robot humanoide es un proceso complejo que requiere combinación profunda de habilidades mecánicas, electrónicas y de programación. Este proyecto documenta el desarrollo completo desde conceptos fundamentales hasta implementación física y evaluación experimental.
 
@@ -20,7 +20,7 @@ La construcción de un robot humanoide es un proceso complejo que requiere combi
 
 Las aplicaciones incluyen asistencia médica, realización de tareas industriales peligrosas, y servicio en entornos humanos.
 
-## Proyecto principal: Robot Humanoide
+## Proyecto principal: robot humanoide
 
 Este repositorio documenta el desarrollo completo de un **robot humanoide desde cero**, integrando:
 
@@ -30,7 +30,7 @@ Este repositorio documenta el desarrollo completo de un **robot humanoide desde 
 - **IA y ML**: Reconocimiento de objetos, voz, aprendizaje por refuerzo
 - **Seguridad y ética**: Procedimientos y normativas
 
-### Características del Robot Humanoide
+### Características del robot humanoide
 
 - **Altura**: 150-180 cm
 - **Peso**: 8-15 kg
@@ -44,7 +44,7 @@ Este repositorio documenta el desarrollo completo de un **robot humanoide desde 
   - Aprendizaje y adaptación
 
 
-## 📖 Referencias
+##  Referencias
 
 - **Papers**: Ver carpeta [09_Datasets_Experimentos/](09_Datasets_Experimentos/)
 - **Tutoriales**: Ver carpeta [10_Herramientas/](10_Herramientas/)
@@ -54,15 +54,9 @@ Este repositorio documenta el desarrollo completo de un **robot humanoide desde 
   - "Probabilistic Robotics" - Thrun, Burgard, Fox
   - "Deep Learning" - Goodfellow, Bengio, Courville
 
-## 📧 Contacto
 
-**Autor**: Jomucon21muri
 
-**GitHub**: [@Jomucon21muri](https://github.com/Jomucon21muri)
-
-**Proyecto**: [IA_para_robotica](https://github.com/Jomucon21muri/IA_para_robotica)
-
-## 📄 Licencia
+## Licencia
 
 <div align="center">
   <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">

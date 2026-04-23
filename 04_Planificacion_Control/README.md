@@ -1,4 +1,4 @@
-# 🎯🎮 Planificación y Control - Cerebro Motor del Robot
+# 🎯🎮 Planificación y control - cerebro motor del robot
 
 ## Propósito
 
@@ -6,7 +6,7 @@ Este módulo implementa el **sistema de planificación y control** del robot hum
 
 ---
 
-## 🌐 Visión General
+## 🌐 Visión general
 
 La planificación y el control trabajan en conjunto en una arquitectura jerárquica:
 
@@ -28,7 +28,7 @@ Actuadores (motores, servos)
 
 ---
 
-## 📂 Estructura del Directorio
+## 📂 Estructura del directorio
 
 ```
 04_Planificacion_Control/
@@ -107,7 +107,7 @@ Actuadores (motores, servos)
 
 ## 🎯 Planificación
 
-### 1. Planificación Global
+### 1. Planificación global
 
 Encuentra rutas óptimas en mapas conocidos desde posición inicial hasta objetivo.
 
@@ -150,7 +150,7 @@ def a_star(grid, start, goal):
     return reconstruct_path(came_from, start, goal)
 ```
 
-### 2. Planificación Local
+### 2. Planificación local
 
 Evita obstáculos dinámicos y ajusta la ruta en tiempo real.
 
@@ -163,7 +163,7 @@ Evita obstáculos dinámicos y ajusta la ruta en tiempo real.
 
 ## 🎮 Control
 
-### 1. Control PID (Bajo Nivel)
+### 1. Control PID (bajo nivel)
 
 Control básico para cada articulación:
 
@@ -232,7 +232,7 @@ def mpc_controller(x0, A, B, Q, R, N=10):
 
 ---
 
-## 🔗 Integración con Otros Módulos
+## 🔗 Integración con otros módulos
 
 - **[02_Percepcion_Vision](../02_Percepcion_Vision/)**: Recibe datos sensoriales para detectar obstáculos
 - **[03_Localizacion_Mapeo](../03_Localizacion_Mapeo/)**: Usa mapas para planificación global
@@ -241,9 +241,9 @@ def mpc_controller(x0, A, B, Q, R, N=10):
 
 ---
 
-## 📚 Recursos y Herramientas
+## 📚 Recursos y herramientas
 
-### Librerías Principales
+### Librerías principales
 ```python
 import numpy as np
 import scipy
@@ -261,7 +261,7 @@ import pinocchio              # Dinámica de robots
 
 ---
 
-## 🎯 Próximos Pasos
+## 🎯 Próximos pasos
 
 1. Implementar A* para navegación básica
 2. Desarrollar controladores PID para articulaciones

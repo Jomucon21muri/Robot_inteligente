@@ -1,9 +1,9 @@
-# Datasets y Experimentos
+# Datasets y experimentos
 
 Propósito:
 - Organizar datasets, experimentos y resultados reproducibles.
 
-Contenido sugerido:
+Contenido:
 - `datasets_raw/` : datos originales (rosbags, imágenes, pointclouds)
 - `preproc/` : scripts de limpieza y conversión
 - `experiments/` : configuraciones y resultados (logs, métricas)

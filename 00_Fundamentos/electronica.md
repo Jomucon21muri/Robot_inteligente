@@ -1,12 +1,12 @@
-# Fundamentos de Electrónica y Electricidad para Robótica Humanoide
+# Fundamentos de electrónica y electricidad para robótica humanoide
 
-## Resumen Ejecutivo
+## Resumen ejecutivo
 
 El sistema electrónico de un robot humanoide constituye el sistema nervioso artificial que permite la percepción sensorial, el procesamiento de información y el control de actuadores. Este documento presenta los fundamentos teóricos y prácticos necesarios para diseñar, implementar y validar circuitos electrónicos para sistemas robóticos complejos a nivel de investigación doctoral.
 
-## 1. Fundamentos de Electricidad y Circuitos
+## 1. Fundamentos de electricidad y circuitos
 
-### 1.1 Leyes Fundamentales
+### 1.1 Leyes fundamentales
 
 #### 1.1.1 Ley de Ohm
 
@@ -127,7 +127,7 @@ Cualquier red lineal bilateral puede reemplazarse por:
 **Teorema de Norton**:
 Equivalente usando fuente de corriente $I_N$ y resistencia paralela $R_N$.
 
-### 1.2 Componentes Pasivos
+### 1.2 Componentes pasivos
 
 #### 1.2.1 Resistencias
 
@@ -224,7 +224,7 @@ A mayor frecuencia, mayor impedancia → Inductores "bloquean" AC.
 - Convertidores DC-DC (Buck, Boost)
 - Supresión EMI
 
-### 1.3 Componentes Activos
+### 1.3 Componentes activos
 
 #### 1.3.1 Diodos
 
@@ -410,9 +410,9 @@ print(f"MOSFET: {specs['mosfet_recomendado']}")
 print(f"RDS(on) máximo: {specs['RDS_on_max']:.4f} Ω")
 ```
 
-## 2. Microcontroladores y Procesadores
+## 2. Microcontroladores y procesadores
 
-### 2.1 Arquitectura de Microcontroladores
+### 2.1 Arquitectura de microcontroladores
 
 **Componentes principales**:
 - **CPU**: Unidad central de procesamiento
@@ -431,7 +431,7 @@ print(f"RDS(on) máximo: {specs['RDS_on_max']:.4f} Ω")
 | **STM32F4** (Nucleo) | 32-bit ARM Cortex-M4 | 168 MHz | 512 KB | 128 KB | 82 | 16×12-bit | $15 | Profesional, DSP |
 | **Raspberry Pi 4** (BCM2711) | 64-bit ARM Cortex-A72 quad-core | 1.5 GHz | SD Card | 4-8 GB | 40 | 0 (usar ADC ext) | $35-55 | Linux, visión, IA |
 
-### 2.2 Protocolos de Comunicación
+### 2.2 Protocolos de comunicación
 
 #### 2.2.1 UART (Universal Asynchronous Receiver-Transmitter)
 
@@ -598,7 +598,7 @@ void loop() {
 - Entorno con ruido electromagnético
 - Sistemas críticos de seguridad
 
-### 2.3 Conversión Analógico-Digital (ADC)
+### 2.3 Conversión analógico-digital (ADC)
 
 **Función**: Convertir señal analógica continua a valor digital discreto.
 
@@ -678,7 +678,7 @@ voltaje_real = adc.leer_voltaje(lectura_raw)
 print(f"Voltaje calibrado: {voltaje_real:.3f} V")
 ```
 
-### 2.4 Modulación por Ancho de Pulso (PWM)
+### 2.4 Modulación por ancho de pulso (PWM)
 
 **Función**: Generar señal analógica promedio mediante pulsos digitales.
 
@@ -779,11 +779,11 @@ void loop() {
 }
 ```
 
-## 3. Fuentes de Alimentación y Gestión de Energía
+## 3. Fuentes de alimentación y gestión de energía
 
-### 3.1 Reguladores de Voltaje
+### 3.1 Reguladores de voltaje
 
-#### 3.1.1 Reguladores Lineales
+#### 3.1.1 Reguladores lineales
 
 **Principio**: Disipar exceso de voltaje como calor.
 
@@ -855,7 +855,7 @@ print(f"Temperatura del chip: {resultado['temp_junction_c']:.1f}°C")
 print(f"Recomendación: {resultado['recomendacion']}")
 ```
 
-#### 3.1.2 Convertidores DC-DC Conmutados
+#### 3.1.2 Convertidores DC-DC conmutados
 
 **Ventajas**:
 - Alta eficiencia (85-95%)
@@ -937,9 +937,9 @@ print(f"Capacitor: {specs['capacitor_uF']:.1f} µF (usar 100µF electrolítico +
 - **MT3608** (Boost): 2-24V in → 5-28V out, 2A
 - **LTC3780** (Buck-Boost): 5-32V in → 1-30V out, 10A
 
-### 3.2 Baterías para Robótica
+### 3.2 Baterías para robótica
 
-#### 3.2.1 Tipos de Baterías
+#### 3.2.1 Tipos de baterías
 
 **Comparativa**:
 
@@ -1074,7 +1074,7 @@ if health['warnings']:
     print("⚠️ Advertencias:", health['warnings'])
 ```
 
-### 3.3 Distribución de Energía
+### 3.3 Distribución de energía
 
 **Arquitectura típica para robot humanoide**:
 
@@ -1107,7 +1107,7 @@ Batería LiPo 3S (11.1V)
 4. **Decoupling local**: Condensador cerca de cada IC
 5. **Ground plane**: Retorno común robusto
 
-## 4. Control de Actuadores
+## 4. Control de actuadores
 
 ### 4.1 Servomotores
 
@@ -1150,7 +1150,7 @@ void loop() {
 }
 ```
 
-### 4.2 Motores DC y Drivers
+### 4.2 Motores DC y drivers
 
 **Controladores H-Bridge**:
 - **L298N**: Hasta 2A por canal, económico
@@ -1226,7 +1226,7 @@ void loop() {
 
 ## 5. Diseño de PCBs
 
-### 5.1 Software de Diseño
+### 5.1 Software de diseño
 
 **Opciones**:
 - **KiCad**: Open-source, profesional, gratuito
@@ -1234,7 +1234,7 @@ void loop() {
 - **EasyEDA**: Web-based, integración con JLCPCB
 - **Altium Designer**: Profesional, costoso
 
-### 5.2 Reglas de Diseño (Design Rules)
+### 5.2 Reglas de diseño (design rules)
 
 **Anchos de pistas según corriente** (cobre 1 oz/ft², 35µm):
 
@@ -1256,7 +1256,7 @@ void loop() {
 - Diámetro pad: Taladro + 0.3 mm
 - Corriente por vía: ~1A (depende del plateado)
 
-### 5.3 Best Practices
+### 5.3 Best practices
 
 1. **Ground planes**: Usar GND como plano continuo
 2. **Decoupling**: Capacitor cerca (< 5mm) de cada IC
@@ -1265,9 +1265,9 @@ void loop() {
 5. **Protección ESD**: Diodos TVS en entradas expuestas
 6. **Testpoints**: Para debugging y calibración
 
-## 6. Seguridad Eléctrica
+## 6. Seguridad eléctrica
 
-### 6.1 Riesgos y Protecciones
+### 6.1 Riesgos y protecciones
 
 **Sobrecorriente**: Fusibles, breakers, PTC resettables
 **Sobrevoltaje**: Diodos Zener, TVS, varistores (MOV)
@@ -1275,7 +1275,7 @@ void loop() {
 **Cortocircuito**: Current limiting, circuit breakers
 **ESD**: Diodos TVS, ground straps, packaging antiestático
 
-### 6.2 Checklists de Seguridad
+### 6.2 Checklists de seguridad
 
 **Antes de energizar**:
 - [ ] Verificar polaridad de batería
@@ -1298,7 +1298,7 @@ void loop() {
 - "Practical Electronics for Inventors" - Scherz & Monk
 - "Make: Electronics" - Charles Platt
 
-### Recursos Online
+### Recursos online
 - Electronics-Tutorials.ws
 - AllAboutCircuits.com
 - Texas Instruments Application Notes
@@ -1315,4 +1315,4 @@ void loop() {
 
 El dominio de la electrónica es fundamental para la construcción exitosa de robots humanoides. La integración apropiada de microcontroladores, sensores, actuadores, alimentación y comunicaciones constituye el sistema nervioso del robot, permitiéndole percibir el entorno y ejecutar acciones coordinadas de manera confiable y segura.
 
-**Próximo módulo**: [Programación y Control](../04_Control/) para implementar algoritmos de control que aprovechen el hardware electrónico.
+**Próximo módulo**: [Programación y Control](../04_Planificacion_Control/) para implementar algoritmos de control que aprovechen el hardware electrónico.

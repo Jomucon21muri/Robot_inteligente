@@ -1,4 +1,4 @@
-# Simulación y Entornos de Prueba
+# Simulación y entornos de prueba
 
 Propósito:
 - Centralizar simuladores y escenarios reproducibles para desarrollo (Gazebo, Webots, PyBullet, Coppelia).

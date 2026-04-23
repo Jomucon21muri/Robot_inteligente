@@ -1,4 +1,4 @@
-# Localización y Mapeo
+# Localización y mapeo
 
 Propósito:
 - Implementar y experimentar con métodos de localización y SLAM (2D/3D) para robots móviles.

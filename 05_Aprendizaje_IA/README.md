@@ -1,14 +1,14 @@
-# 🧠 Aprendizaje Automático y IA - Robot Humanoide
+# 🧠 Aprendizaje automático y IA - robot humanoide
 
 ## Propósito
 
 Implementar capacidades de inteligencia artificial en el robot humanoide, incluyendo reconocimiento de objetos, procesamiento de lenguaje natural, aprendizaje por refuerzo para control, y otras técnicas de ML/DL que permitan al robot percibir, aprender y mejorar sus capacidades.
 
-## Área de Conocimiento
+## Área de conocimiento
 
 Este módulo implementa el pilar 6: **Inteligencia Artificial y Aprendizaje Automático** (ver [recursos_conocimientos.md](../01_Proyecto/recursos_conocimientos.md)).
 
-## Estructura del Directorio
+## Estructura del directorio
 
 ```
 05_Aprendizaje_IA/
@@ -51,9 +51,9 @@ Este módulo implementa el pilar 6: **Inteligencia Artificial y Aprendizaje Auto
     └── edge/                # Optimización para edge (Jetson)
 ```
 
-## Aplicaciones de IA en el Robot Humanoide
+## Aplicaciones de IA en el robot humanoide
 
-### 1. Percepción Visual
+### 1. Percepción visual
 
 **Reconocimiento de Objetos**:
 - Identificar objetos del entorno
@@ -122,7 +122,7 @@ cap.release()
 cv2.destroyAllWindows()
 ```
 
-### 2. Procesamiento de Lenguaje Natural
+### 2. Procesamiento de lenguaje natural
 
 **Reconocimiento de Voz**:
 ```python
@@ -214,7 +214,7 @@ tts.speak("Hola, soy un robot humanoide")
 tts.speak("¿En qué puedo ayudarte?")
 ```
 
-### 3. Aprendizaje por Refuerzo
+### 3. Aprendizaje por refuerzo
 
 **Control de Locomoción**:
 Entrenar al robot a caminar de forma estable usando RL.
@@ -334,7 +334,7 @@ for i in range(1000):
         obs = env.reset()
 ```
 
-### 4. Aprendizaje por Imitación
+### 4. Aprendizaje por imitación
 
 **Clonación de Comportamiento**:
 Aprender acciones a partir de demostraciones humanas (ej: gestos, manipulación).
@@ -413,7 +413,7 @@ for epoch in range(100):
 torch.save(model.state_dict(), 'models/wave_gesture_bc.pth')
 ```
 
-## Optimización para Edge Deployment
+## Optimización para edge deployment
 
 **Cuantización de Modelos**:
 Reducir tamaño y acelerar inferencia en Raspberry Pi / Jetson Nano.
@@ -471,7 +471,7 @@ torch.onnx.export(
 # Usar herramienta trtexec o Python API
 ```
 
-## Métricas y Evaluación
+## Métricas y evaluación
 
 **Clasificación**:
 - Accuracy, Precision, Recall, F1-Score
@@ -536,7 +536,7 @@ def evaluate_classification(model, test_loader, class_names):
 evaluate_classification(model, test_loader, ['person', 'cup', 'book', ...])
 ```
 
-## Datasets Recomendados
+## Datasets recomendados
 
 **Visión**:
 - **COCO**: Detección de objetos (80 clases)
@@ -555,7 +555,7 @@ evaluate_classification(model, test_loader, ['person', 'cup', 'book', ...])
 **Custom**:
 Recolectar datos propios del robot en operación.
 
-## Herramientas y Frameworks
+## Herramientas y frameworks
 
 **Deep Learning**:
 - PyTorch, TensorFlow/Keras
@@ -577,7 +577,7 @@ Recolectar datos propios del robot en operación.
 - SpeechRecognition
 - pyttsx3, gTTS
 
-## Próximos Pasos
+## Próximos pasos
 
 1. **Configurar entorno** de desarrollo (Python, PyTorch)
 2. **Recolectar datos** iniciales (imágenes desde cámara)

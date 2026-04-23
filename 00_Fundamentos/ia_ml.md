@@ -1,12 +1,12 @@
-# Fundamentos de Inteligencia Artificial y Aprendizaje Automático para Robótica Humanoide
+# Fundamentos de inteligencia artificial y aprendizaje automático para robótica humanoide
 
-## Resumen Ejecutivo
+## Resumen ejecutivo
 
 La inteligencia artificial y el aprendizaje automático constituyen el cerebro cognitivo superior del robot humanoide, permitiéndole percibir, comprender, aprender y adaptarse a entornos complejos y dinámicos. Este documento presenta los fundamentos teóricos y prácticos necesarios para implement sistemas de IA en robótica a nivel doctoral, abarcando desde percepción visual hasta aprendizaje por refuerzo profundo.
 
-## 1. Fundamentos de Inteligencia Artificial
+## 1. Fundamentos de inteligencia artificial
 
-### 1.1 Conceptos Básicos de IA
+### 1.1 Conceptos básicos de IA
 
 **Definición**: La Inteligencia Artificial es la ciencia de hacer que las máquinas realicen tareas que requieren inteligencia cuando son realizadas por humanos.
 
@@ -21,7 +21,7 @@ La inteligencia artificial y el aprendizaje automático constituyen el cerebro c
 - Aprendizaje automático
 - Razonamiento bajo incertidumbre
 
-### 1.2 Representación del Conocimiento
+### 1.2 Representación del conocimiento
 
 **Lógica proposicional y de primer orden**:
 ```python
@@ -70,7 +70,7 @@ accion = sistema.evaluar(datos)
 print(f"Acción recomendada: {accion}")
 ```
 
-### 1.3 Búsqueda y Planificación
+### 1.3 Búsqueda y planificación
 
 **Algoritmos de búsqueda fundamentales**:
 
@@ -153,9 +153,9 @@ camino = a_star(
 print(f"Camino encontrado: {camino}")
 ```
 
-## 2. Aprendizaje Automático (Machine Learning)
+## 2. Aprendizaje automático (machine learning)
 
-### 2.1 Aprendizaje Supervisado
+### 2.1 Aprendizaje supervisado
 
 **Regresión Lineal**:
 $$\hat{y} = w^Tx + b$$
@@ -272,7 +272,7 @@ terreno, conf = clasificador.predecir(accel_test, gyro_test)
 print(f"Terreno detectado: {terreno} (confianza: {conf*100:.1f}%)")
 ```
 
-### 2.2 Redes Neuronales Artificiales (ANN)
+### 2.2 Redes neuronales artificiales (ANN)
 
 **Perceptrón multicapa (MLP)**:
 
@@ -347,7 +347,7 @@ postura_estimada = modelo_entrenado(accel_nueva)
 print(f"Postura estimada: roll={postura_estimada[0,0]:.3f}, pitch={postura_estimada[0,1]:.3f}, yaw={postura_estimada[0,2]:.3f}")
 ```
 
-### 2.3 Redes Neuronales Convolucionales (CNN)
+### 2.3 Redes neuronales convolucionales (CNN)
 
 Para procesamiento de imágenes y visión por computadora.
 
@@ -400,7 +400,7 @@ clase_predicha = torch.argmax(salida).item()
 print(f"Clase predicha: {clase_predicha}")
 ```
 
-### 2.4 Aprendizaje por Refuerzo (Reinforcement Learning)
+### 2.4 Aprendizaje por refuerzo (reinforcement learning)
 
 **Concepto**: El agente aprende a tomar decisiones óptimas interactuando con el entorno y recibiendo recompensas.
 
@@ -633,9 +633,9 @@ class AgenteDQN:
 # (Requiere definir entorno que retorne estados como vectores numéricos)
 ```
 
-## 3. Aplicaciones Específicas en Robótica Humanoide
+## 3. Aplicaciones específicas en robótica humanoide
 
-### 3.1 Reconocimiento de Voz
+### 3.1 Reconocimiento de voz
 
 ```python
 import speech_recognition as sr
@@ -704,7 +704,7 @@ if comando:
     print(f"Acción a ejecutar: {accion}")
 ```
 
-### 3.2 Detección y Reconocimiento Facial
+### 3.2 Detección y reconocimiento facial
 
 ```python
 import cv2
@@ -784,9 +784,9 @@ reconocedor.registrar_persona("María", "maria.jpg")
 reconocedor.reconocer_desde_camara()
 ```
 
-## 4. Consideraciones Éticas en IA para Robótica
+## 4. Consideraciones éticas en IA para robótica
 
-### 4.1 Sesgos y Equidad
+### 4.1 Sesgos y equidad
 
 **Problema**: Algoritmos de IA pueden perpetuar sesgos presentes en datos de entrenamiento.
 
@@ -795,7 +795,7 @@ reconocedor.reconocer_desde_camara()
 - Evaluarvmétricas de equidad (disparate impact, demographic parity)
 - Técnicas de debiasing (re-weighting, adversarial debiasing)
 
-### 4.2 Transparencia y Explicabilidad
+### 4.2 Transparencia y explicabilidad
 
 **Técnicas de IA Explicable (XAI)**:
 
@@ -820,7 +820,7 @@ def explicar_prediccion_modelo(modelo, instancia, datos_fondo):
     return shap_values
 ```
 
-### 4.3 Privacidad de Datos
+### 4.3 Privacidad de datos
 
 **Principios**:
 - Minimización de datos
@@ -828,9 +828,9 @@ def explicar_prediccion_modelo(modelo, instancia, datos_fondo):
 - Consentimiento informado
 - Derecho al olvido
 
-## 5. Optimización para Deployment en Edge
+## 5. Optimización para deployment en edge
 
-### 5.1 Cuantización de Modelos
+### 5.1 Cuantización de modelos
 
 ```python
 import torch
@@ -866,7 +866,7 @@ def cuantizar_modelo(modelo, ejemplo_entrada):
     return modelo_cuantizado
 ```
 
-### 5.2 Pruning (Poda de Redes)
+### 5.2 Pruning (poda de redes)
 
 ```python
 import torch.nn.utils.prune as prune
@@ -910,4 +910,4 @@ def podar_modelo(modelo, cantidad=0.3):
 
 La inteligencia artificial y el aprendizaje automático son componentes esenciales para dotar a robots humanoides de capacidades avanzadas de percepción, comprensión, adaptación y toma de decisiones autónomas. La combinación de técnicas clásicas de ML con deep learning y aprendizaje por refuerzo permite crear sistemas robóticos verdaderamente inteligentes que pueden operar en entornos complejos y dinámicos del mundo real.
 
-**Próximo módulo**: [Comunicaciones e Interfaces](../09_Comunicaciones_Interfaces/) para integración de sistemas distribuidos.
+**Próximo módulo**: [Comunicaciones e interfaces](../07_Comunicaciones/) para integración de sistemas distribuidos.

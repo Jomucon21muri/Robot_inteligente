@@ -340,7 +340,7 @@ El aprendizaje en robótica es necesariamente iterativo: la teoría se estudia, 
 
 **Última actualización:** Marzo de 2026
 
-#### 3.8 Planificación de Movimiento
+#### 3.8 Planificación de movimiento
 
 **Algoritmos**:
 - **RRT (Rapidly-exploring Random Trees)**: Exploración espacial
@@ -348,7 +348,7 @@ El aprendizaje en robótica es necesariamente iterativo: la teoría se estudia, 
 - **Dijkstra**: Camino más corto
 - **Potential Fields**: Navegación reactiva
 
-#### 3.9 Lógica de Comportamiento
+#### 3.9 Lógica de comportamiento
 
 **Máquinas de estado**:
 ```python
@@ -371,7 +371,7 @@ class BehaviorController:
         # ... más transiciones
 ```
 
-#### 3.10 Depuración y Optimización
+#### 3.10 Depuración y optimización
 
 **Herramientas**:
 - GDB: Depurador C/C++
@@ -385,7 +385,7 @@ class BehaviorController:
 - Continuous Integration
 - Code review
 
-### Referencias y Recursos
+### Referencias y recursos
 - 📖 "Programming Robots with ROS" - Quigley, Gerkey, Smart
 - 📖 "Modern Robotics" - Lynch & Park
 - 🎓 ROS Tutorials: wiki.ros.org
@@ -397,9 +397,9 @@ class BehaviorController:
 
 **Carpeta principal**: [`08_Integracion_Hardware/`](../08_Integracion_Hardware/)
 
-### Conocimientos Fundamentales
+### Conocimientos fundamentales
 
-#### 4.1 Integración Mecánica-Electrónica
+#### 4.1 Integración mecánica-electrónica
 
 **Diseño para integración**:
 - Espacios para cableado
@@ -408,7 +408,7 @@ class BehaviorController:
 - Gestión térmica
 - EMI/EMC (interferencia electromagnética)
 
-#### 4.2 Sistemas de Transmisión
+#### 4.2 Sistemas de transmisión
 
 **Opciones de transmisión**:
 - **Engranajes**: 
@@ -428,7 +428,7 @@ class BehaviorController:
   - Movimiento lineal
   - Ball screws
 
-#### 4.3 Actuadores vs Sensores
+#### 4.3 Actuadores vs sensores
 
 **Integración**:
 - Coubicación de encoder con motor
@@ -436,7 +436,7 @@ class BehaviorController:
 - Sensores de fuerza en articulaciones
 - Retroalimentación táctil
 
-#### 4.4 Diseño de PCB Integrado
+#### 4.4 Diseño de PCB integrado
 
 **Consideraciones**:
 - Montaje en estructura mecánica
@@ -444,7 +444,7 @@ class BehaviorController:
 - Protección contra vibración
 - Disipación de calor
 
-#### 4.5 Cableado y Routing
+#### 4.5 Cableado y routing
 
 **Mejores prácticas**:
 - Cable management
@@ -453,7 +453,7 @@ class BehaviorController:
 - Etiquetado claro
 - Esquemas de cableado
 
-#### 4.6 Sistemas de Refrigeración
+#### 4.6 Sistemas de refrigeración
 
 **Métodos**:
 - Ventilación pasiva
@@ -462,7 +462,7 @@ class BehaviorController:
 - Heat pipes
 - Espaciado adecuado de componentes
 
-#### 4.7 Interfaz Mecánica-Electrónica
+#### 4.7 Interfaz mecánica-electrónica
 
 **Montajes comunes**:
 - Encoder en eje de motor
@@ -470,7 +470,7 @@ class BehaviorController:
 - Sensor mount
 - PCB standoffs
 
-#### 4.8 Pruebas de Integración
+#### 4.8 Pruebas de integración
 
 **Verificaciones**:
 - Rango de movimiento sin colisiones
@@ -478,19 +478,19 @@ class BehaviorController:
 - Funcionamiento de sistemas de enfriamiento
 - Routing de cables sin tensión excesiva
 
-### Referencias y Recursos
+### Referencias y recursos
 - 📖 "Mechatronics: Electronic Control Systems in Mechanical Engineering" - Bolton
 - 📖 "Introduction to Mechatronic Design" - Carryer, Ohline, Kenny
 
 ---
 
-## 5. 💾 Diseño de Software
+## 5. 💾 Diseño de software
 
 **Carpeta principal**: [`09_Comunicaciones_Interfaces/`](../09_Comunicaciones_Interfaces/)
 
-### Conocimientos Fundamentales
+### Conocimientos fundamentales
 
-#### 5.1 Arquitectura de Software
+#### 5.1 Arquitectura de software
 
 **Patrones de diseño**:
 - **MVC** (Model-View-Controller)
@@ -511,7 +511,7 @@ robot_software/
 └── utils/          # Utilidades
 ```
 
-#### 5.2 Programación Orientada a Objetos
+#### 5.2 Programación orientada a objetos
 
 **Conceptos clave**:
 ```python
@@ -568,7 +568,7 @@ class RobotControlGUI(QMainWindow):
         pass
 ```
 
-#### 5.4 APIs y Comunicación
+#### 5.4 APIs y comunicación
 
 **REST API ejemplo (Flask)**:
 ```python
@@ -594,7 +594,7 @@ def get_status():
     return jsonify(status)
 ```
 
-#### 5.5 Manejo de Errores
+#### 5.5 Manejo de errores
 
 **Estrategias**:
 ```python
@@ -617,7 +617,7 @@ def safe_move(joint, angle):
         raise
 ```
 
-#### 5.6 Logging y Debugging
+#### 5.6 Logging y debugging
 
 **Configuración de logging**:
 ```python
@@ -662,7 +662,7 @@ if __name__ == '__main__':
     unittest.main()
 ```
 
-#### 5.8 Documentación de Código
+#### 5.8 Documentación de código
 
 **Docstrings**:
 ```python
@@ -690,20 +690,20 @@ def calculate_inverse_kinematics(target_pos, target_orient, robot_model):
     pass
 ```
 
-### Referencias y Recursos
+### Referencias y recursos
 - 📖 "Clean Code" - Robert C. Martin
 - 📖 "Design Patterns" - Gang of Four
 - 🎓 Real Python, PyQt documentation
 
 ---
 
-## 6. 🧠 Inteligencia Artificial y Aprendizaje Automático
+## 6. 🧠 Inteligencia artificial y aprendizaje automático
 
 **Carpetas principales**: 
 - [`05_Aprendizaje_Maquina/`](../05_Aprendizaje_Maquina/)
 - [`06_Vision/`](../06_Vision/)
 
-### Conocimientos Fundamentales
+### Conocimientos fundamentales
 
 #### 6.1 Conceptos de IA
 
@@ -713,7 +713,7 @@ def calculate_inverse_kinematics(target_pos, target_orient, robot_model):
 - **Teoría de la mente**: Comprende emociones (objetivo)
 - **Autoconciencia**: Conciencia propia (futuro lejano)
 
-#### 6.2 Aprendizaje Automático
+#### 6.2 Aprendizaje automático
 
 **Paradigmas**:
 
@@ -734,7 +734,7 @@ def calculate_inverse_kinematics(target_pos, target_orient, robot_model):
 - Actor-Critic
 - Aplicaciones: Control de locomoción, navegación
 
-#### 6.3 Redes Neuronales
+#### 6.3 Redes neuronales
 
 **Arquitecturas**:
 
@@ -768,7 +768,7 @@ class SimpleNN(nn.Module):
 - Atención: Enfoque en partes relevantes
 - Aplicación: NLP, visión
 
-#### 6.4 Deep Learning Frameworks
+#### 6.4 Deep learning frameworks
 
 **PyTorch**:
 ```python
@@ -807,7 +807,7 @@ model.compile(optimizer='adam',
 model.fit(x_train, y_train, epochs=5, validation_split=0.2)
 ```
 
-#### 6.5 Visión por Computadora
+#### 6.5 Visión por computadora
 
 **OpenCV básico**:
 ```python
@@ -857,7 +857,7 @@ for out in outs:
             pass
 ```
 
-#### 6.6 Procesamiento de Lenguaje Natural
+#### 6.6 Procesamiento de lenguaje natural
 
 **Bibliotecas**:
 - NLTK: Procesamiento básico
@@ -893,7 +893,7 @@ engine.say("Hola, soy un robot humanoide")
 engine.runAndWait()
 ```
 
-#### 6.7 Aprendizaje por Refuerzo
+#### 6.7 Aprendizaje por refuerzo
 
 **Conceptos**:
 - **Estado** (s): Situación actual
@@ -924,7 +924,7 @@ class QLearningAgent:
         self.q_table[state, action] += self.alpha * (target - predict)
 ```
 
-#### 6.8 Transfer Learning
+#### 6.8 Transfer learning
 
 **Uso de modelos pre-entrenados**:
 ```python
@@ -944,7 +944,7 @@ resnet.fc = nn.Linear(resnet.fc.in_features, num_classes)
 optimizer = optim.Adam(resnet.fc.parameters(), lr=0.001)
 ```
 
-### Referencias y Recursos
+### Referencias y recursos
 - 📖 "Deep Learning" - Goodfellow, Bengio, Courville
 - 📖 "Hands-On Machine Learning" - Aurélien Géron
 - 📖 "Reinforcement Learning: An Introduction" - Sutton & Barto
@@ -954,13 +954,13 @@ optimizer = optim.Adam(resnet.fc.parameters(), lr=0.001)
 
 ---
 
-## 7. 🏭 Materiales y Fabricación
+## 7. 🏭 Materiales y fabricación
 
 **Carpeta principal**: [`08_Integracion_Hardware/`](../08_Integracion_Hardware/)
 
-### Conocimientos Fundamentales
+### Conocimientos fundamentales
 
-#### 7.1 Propiedades de Materiales
+#### 7.1 Propiedades de materiales
 
 **Propiedades mecánicas**:
 - **Resistencia tensil**: Fuerza antes de ruptura
@@ -1034,7 +1034,7 @@ optimizer = optim.Adam(resnet.fc.parameters(), lr=0.001)
 - ✅ Buena maquinabilidad, baja fricción
 - Uso: Bujes, conectores
 
-#### 7.4 Materiales Compuestos
+#### 7.4 Materiales compuestos
 
 **Fibra de Carbono**:
 - ✅ Excelente relación resistencia-peso
@@ -1046,7 +1046,7 @@ optimizer = optim.Adam(resnet.fc.parameters(), lr=0.001)
 - ❌ Más pesado que fibra carbono
 - Uso: Carcasas, paneles
 
-#### 7.5 Técnicas de Fabricación
+#### 7.5 Técnicas de fabricación
 
 #### Impresión 3D
 
@@ -1095,14 +1095,14 @@ G02 X20 Y20 I5 J5 F200  ; Arco horario
 M30         ; Fin programa
 ```
 
-#### Corte Láser
+#### Corte láser
 
 - Materiales: Madera, acrílico, cartón, algunos metales
 - Precisión alta
 - Bordes limpios
 - 2D principalmente
 
-#### Otros Procesos
+#### Otros procesos
 
 **Moldeo por Inyección**:
 - Producción en masa de plásticos
@@ -1117,7 +1117,7 @@ M30         ; Fin programa
 - Doblado, estampado
 - Partes de metal delgado
 
-#### 7.6 Post-Procesamiento
+#### 7.6 Post-procesamiento
 
 **Lijado**: Suavizar superficies
 **Pintado**: Estética, protección
@@ -1125,20 +1125,20 @@ M30         ; Fin programa
 **Anodizado** (aluminio): Protección, color
 **Soldadura**: Unir metales
 
-### Referencias y Recursos
+### Referencias y recursos
 - 📖 "Manufacturing Processes for Engineering Materials" - Kalpakjian
 - 🌐 Simplify3D Print Quality Troubleshooting Guide
 - 🌐 MatWeb: Base de datos de materiales
 
 ---
 
-## 8. 🔋 Baterías y Energía
+## 8. 🔋 Baterías y energía
 
 **Carpeta principal**: [`08_Integracion_Hardware/`](../08_Integracion_Hardware/)
 
-### Conocimientos Fundamentales
+### Conocimientos fundamentales
 
-#### 8.1 Tipos de Baterías
+#### 8.1 Tipos de baterías
 
 **Litio-Polímero (LiPo)**:
 - Voltaje nominal: 3.7V por celda
@@ -1162,7 +1162,7 @@ M30         ; Fin programa
 - ❌ Menor densidad energética, auto-descarga
 - Uso: Juguetes, dispositivos legacy
 
-#### 8.2 Especificaciones Clave
+#### 8.2 Especificaciones clave
 
 **Capacidad** (mAh, Ah):
 - Cantidad de energía almacenada
@@ -1181,7 +1181,7 @@ M30         ; Fin programa
 - Wh = V × Ah
 - Ejemplo: 11.1V (3S) × 5Ah = 55.5Wh
 
-#### 8.3 Cálculo de Autonomía
+#### 8.3 Cálculo de autonomía
 
 ```python
 def calcular_autonomia(capacidad_mah, voltaje_v, potencia_watts):
@@ -1207,7 +1207,7 @@ print(f"Autonomía: {autonomia:.2f} horas")
 # Resultado: ~0.89 horas ≈ 53 minutos
 ```
 
-#### 8.4 Sistema de Gestión de Baterías (BMS)
+#### 8.4 Sistema de gestión de baterías (BMS)
 
 **Funciones**:
 - **Protección sobrecarga**: Detiene carga a 4.2V/celda
@@ -1241,7 +1241,7 @@ while True:
     time.sleep(1)
 ```
 
-#### 8.5 Regulación de Voltaje
+#### 8.5 Regulación de voltaje
 
 **Reguladores Lineales**:
 - LM7805 (5V), LM7812 (12V), LM317 (ajustable)
@@ -1264,7 +1264,7 @@ while True:
 - Aumenta o reduce
 - Mayor flexibilidad
 
-#### 8.6 Distribución de Energía
+#### 8.6 Distribución de energía
 
 **Esquema típico**:
 ```
@@ -1285,7 +1285,7 @@ Batería (11.1V LiPo 3S)
 - Capacitores de desacople cerca de cada componente
 - Ground común
 
-#### 8.7 Carga de Baterías
+#### 8.7 Carga de baterías
 
 **Cargadores LiPo**:
 - Balance charging: Carga cada celda individualmente
@@ -1297,7 +1297,7 @@ Batería (11.1V LiPo 3S)
 1. CC (Corriente Constante): Hasta 4.2V/celda
 2. CV (Voltaje Constante): Corriente decae
 
-#### 8.8 Almacenamiento y Seguridad
+#### 8.8 Almacenamiento y seguridad
 
 **Almacenamiento LiPo**:
 - Voltaje: 3.8V/celda (modo storage)
@@ -1311,7 +1311,7 @@ Batería (11.1V LiPo 3S)
 - ⚠️ Nunca perforar
 - ⚠️ Desechar si está hinchada o dañada
 
-#### 8.9 Alternativas de Energía
+#### 8.9 Alternativas de energía
 
 **Supercapacitores**:
 - Carga/descarga muy rápida
@@ -1325,20 +1325,20 @@ Batería (11.1V LiPo 3S)
 - Costoso, complejo
 - Uso: Aplicaciones especializadas
 
-### Referencias y Recursos
+### Referencias y recursos
 - 📖 "Battery Management Systems" - Gregory Plett
 - 🌐 Battery University
 - 🌐 Oscar Liang: LiPo Battery Guide
 
 ---
 
-## 9. 🏃 Diseño Ergonómico y Biomecánica
+## 9. 🏃 Diseño ergonómico y biomecánica
 
 **Carpeta principal**: [`04_Control/`](../04_Control/)
 
-### Conocimientos Fundamentales
+### Conocimientos fundamentales
 
-#### 9.1 Anatomía Humana
+#### 9.1 Anatomía humana
 
 **Articulaciones principales**:
 
@@ -1364,7 +1364,7 @@ Batería (11.1V LiPo 3S)
 - Cada pierna: 6
 - **Total**: 25-30 DOF
 
-#### 9.2 Biomecánica del Movimiento
+#### 9.2 Biomecánica del movimiento
 
 **Centro de Masa (COM)**:
 - Humano: Aprox. a nivel de S2 (segunda vértebra sacra)
@@ -1387,7 +1387,7 @@ Ciclo de marcha humano:
 6. Swing phase (fase de balanceo)
 ```
 
-#### 9.3 Cinemática Humanoide
+#### 9.3 Cinemática humanoide
 
 **Denavit-Hartenberg (DH)**:
 Parametrización estándar de cadenas cinemáticas
@@ -1431,7 +1431,7 @@ for params in dh_params:
 # T contiene la transformación de base a end-effector
 ```
 
-#### 9.4 Dinámica de Movimiento
+#### 9.4 Dinámica de movimiento
 
 **Ecuación de Euler-Lagrange**:
 ```
@@ -1445,7 +1445,7 @@ G(q): Gravedad
 q: Posiciones articulares
 ```
 
-#### 9.5 Control de Equilibrio
+#### 9.5 Control de equilibrio
 
 **Estrategias**:
 
@@ -1480,7 +1480,7 @@ class BalanceController:
         return ankle_pitch, ankle_roll
 ```
 
-#### 9.6 Locomoción Bípeda
+#### 9.6 Locomoción bípeda
 
 **Generación de Trayectorias**:
 
@@ -1523,7 +1523,7 @@ def generate_step_trajectory(start_pos, end_pos, step_height, duration, freq=100
     return trajectory
 ```
 
-#### 9.7 Interacción Física
+#### 9.7 Interacción física
 
 **Compliance (Flexibilidad)**:
 - Articulaciones no rígidas
@@ -1546,7 +1546,7 @@ class ImpedanceController:
         return torque
 ```
 
-#### 9.8 Ergonomía del Robot
+#### 9.8 Ergonomía del robot
 
 **Diseño centrado en humanos**:
 - Altura adecuada (típicamente 150-180cm)
@@ -1558,7 +1558,7 @@ class ImpedanceController:
 - Muy similar a humano puede ser perturbador
 - Balance entre realismo y abstracción
 
-### Referencias y Recursos
+### Referencias y recursos
 - 📖 "Humanoid Robots: Modeling and Control" - Vukobratović, Borovac
 - 📖 "Biped Locomotion" - Kajita et al.
 - 🎓 Papers: ZMP-based walking, Preview control
@@ -1570,9 +1570,9 @@ class ImpedanceController:
 
 **Carpeta principal**: [`09_Comunicaciones_Interfaces/`](../09_Comunicaciones_Interfaces/)
 
-### Conocimientos Fundamentales
+### Conocimientos fundamentales
 
-#### 10.1 Protocolos de Comunicación Inalámbrica
+#### 10.1 Protocolos de comunicación inalámbrica
 
 **WiFi (802.11)**:
 - Alcance: 50-100m interior
@@ -1607,7 +1607,7 @@ ping 8.8.8.8
 - Largo alcance (km), bajo bitrate
 - Uso: Telemetría remota
 
-#### 10.2 Arquitecturas de Red
+#### 10.2 Arquitecturas de red
 
 **Client-Server**:
 ```
@@ -1630,7 +1630,7 @@ Nodo A (Publisher) → Topic → Nodo B (Subscriber)
 - Desacoplamiento
 - Múltiples suscriptores
 
-#### 10.3 Protocolos de Aplicación
+#### 10.3 Protocolos de aplicación
 
 **MQTT** (Message Queue Telemetry Transport):
 - Ligero, pub-sub
@@ -1702,7 +1702,7 @@ asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
 ```
 
-#### 10.4 ROS Communication
+#### 10.4 ROS communication
 
 **Topics** (Pub-Sub):
 ```python
@@ -1752,7 +1752,7 @@ client.send_goal(goal)
 client.wait_for_result()
 ```
 
-#### 10.5 Streaming de Video
+#### 10.5 Streaming de video
 
 **GStreamer**:
 ```bash
@@ -1785,7 +1785,7 @@ while True:
     conn.sendall(message)
 ```
 
-#### 10.6 Control Remoto
+#### 10.6 Control remoto
 
 **Gamepad/Joystick**:
 ```python
@@ -1814,7 +1814,7 @@ while True:
 - Flutter/React Native (profesional)
 - Comunicación vía HTTP o WebSocket
 
-#### 10.7 Seguridad de Comunicación
+#### 10.7 Seguridad de comunicación
 
 **Encriptación**:
 - TLS/SSL para HTTP (HTTPS)
@@ -1852,7 +1852,7 @@ sudo ufw allow from 192.168.1.0/24  # Red local
 sudo ufw enable
 ```
 
-#### 10.8 Latencia y Quality of Service
+#### 10.8 Latencia y quality of service
 
 **Medición de latencia**:
 ```python
@@ -1878,20 +1878,20 @@ def measure_latency(url, iterations=10):
 - Priorización de mensajes críticos
 - Buffering inteligente
 
-### Referencias y Recursos
+### Referencias y recursos
 - 📖 "Computer Networks" - Tanenbaum
 - 🌐 ROS Communication Patterns
 - 🌐 MQTT official documentation
 
 ---
 
-## 11. 🛡️ Seguridad y Ética
+## 11. 🛡️ Seguridad y ética
 
 **Carpeta principal**: [`12_Etica_Seguridad/`](../12_Etica_Seguridad/)
 
-### Conocimientos Fundamentales
+### Conocimientos fundamentales
 
-#### 11.1 Seguridad Física
+#### 11.1 Seguridad física
 
 **Diseño Seguro**:
 - **Bordes redondeados**: Evitar cortes
@@ -1928,7 +1928,7 @@ class SafeJoint:
 - Sensores de fuerza en piel artificial
 - Cámaras para detección de personas
 
-#### 11.2 Zonas de Seguridad
+#### 11.2 Zonas de seguridad
 
 **Clasificación de espacios**:
 1. **Zona colaborativa**: Robot + humano trabajando juntos
@@ -1999,7 +1999,7 @@ decrypted = cipher.decrypt(encrypted).decode()
 - Verificación de integridad (checksums)
 - Rollback automático si falla
 
-#### 11.4 Privacidad de Datos
+#### 11.4 Privacidad de datos
 
 **GDPR/Normativas**:
 - Consentimiento explícito para recopilar datos
@@ -2123,7 +2123,7 @@ class EthicalDecisionMaker:
         return False
 ```
 
-#### 11.7 Normativas y Estándares
+#### 11.7 Normativas y estándares
 
 **ISO/TS 15066**: Robots colaborativos
 - Límites de fuerza y presión
@@ -2139,7 +2139,7 @@ class EthicalDecisionMaker:
 - Protección contra choques eléctricos
 - Aislamiento
 
-#### 11.8 Gestión de Riesgos
+#### 11.8 Gestión de riesgos
 
 **Análisis FMEA** (Failure Mode and Effects Analysis):
 ```
@@ -2188,7 +2188,7 @@ class EmergencyHandler:
         send_alert("Robot en modo seguro")
 ```
 
-### Referencias y Recursos
+### Referencias y recursos
 - 📖 "Robot Ethics" - Lin, Abney, Bekey
 - 📖 "AI Ethics" - Coeckelbergh
 - 🌐 ISO standards (ISO.org)
@@ -2201,7 +2201,7 @@ class EmergencyHandler:
 
 **Carpeta principal**: [`00_Gestion_Proyecto/`](../00_Gestion_Proyecto/)
 
-### Conocimientos Fundamentales
+### Conocimientos fundamentales
 
 #### 12.1 Metodologías
 
@@ -2266,7 +2266,7 @@ Pruebas              |       |       |       |████████|
 - Secuencia de tareas que determina duración mínima
 - Identificar para priorizar recursos
 
-#### 12.3 Gestión de Recursos
+#### 12.3 Gestión de recursos
 
 **Presupuesto ejemplo**:
 ```
@@ -2296,7 +2296,7 @@ Contingencia (20%) |          |            | $199
 **TOTAL**          |          |            | **$1,194**
 ```
 
-#### 12.4 Gestión de Riesgos
+#### 12.4 Gestión de riesgos
 
 **Registro de riesgos**:
 ```
@@ -2308,7 +2308,7 @@ Contingencia (20%) |          |            | $199
 | R4 | Bug crítico | Media | Alto | Testing exhaustivo | Rollback |
 ```
 
-#### 12.5 Seguimiento y Control
+#### 12.5 Seguimiento y control
 
 **KPIs** (Key Performance Indicators):
 - **Cumplimiento cronograma**: % tareas a tiempo
@@ -2322,7 +2322,7 @@ Contingencia (20%) |          |            | $199
 - Notion: Documentación y planificación
 - Excel/Sheets: Tracking manual
 
-#### 12.6 Documentación Continua
+#### 12.6 Documentación continua
 
 **Estructura**:
 ```
@@ -2369,14 +2369,14 @@ Usar ROS (Robot Operating System) versión Noetic.
 - Middleware ligero (menos funcionalidad)
 ```
 
-### Referencias y Recursos
+### Referencias y recursos
 - 📖 "The Lean Startup" - Eric Ries
 - 📖 "Scrum: The Art of Doing Twice the Work in Half the Time" - Jeff Sutherland
 - 🌐 PM BoK (Project Management Body of Knowledge)
 
 ---
 
-## 📌 Resumen por Carpeta del Proyecto
+## 📌 Resumen por carpeta del proyecto
 
 | Carpeta | Conocimientos Principales |
 |---------|---------------------------|
@@ -2396,9 +2396,9 @@ Usar ROS (Robot Operating System) versión Noetic.
 
 ---
 
-## 🎓 Recomendaciones de Aprendizaje
+## 🎓 Recomendaciones de aprendizaje
 
-### Ruta de Aprendizaje
+### Ruta de aprendizaje
 
 **Fase 1: Fundamentos (Meses 1-3)**
 1. Python (básico → avanzado)
@@ -2418,7 +2418,7 @@ Usar ROS (Robot Operating System) versión Noetic.
 3. Aprendizaje por refuerzo
 4. Integración completa
 
-### Recursos Online Gratuitos
+### Recursos online gratuitos
 
 **Cursos**:
 - Coursera: "Robotics Specialization" (UPenn)

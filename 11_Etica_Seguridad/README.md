@@ -1,14 +1,14 @@
-# 🛡️ Ética, Seguridad y Buenas Prácticas - Robot Humanoide
+# 🛡️ Ética, seguridad y buenas prácticas - robot humanoide
 
 ## Propósito
 
 Garantizar que el desarrollo y operación del robot humanoide sean seguros, éticos y responsables. Este módulo es CRÍTICO y NO OPCIONAL.
 
-## Área de Conocimiento
+## Área de conocimiento
 
 Este módulo implementa el pilar 11: **Seguridad y Ética** (ver [recursos_conocimientos.md](../01_Proyecto/recursos_conocimientos.md)).
 
-## Estructura del Directorio
+## Estructura del directorio
 
 ```
 11_Etica_Seguridad/
@@ -45,9 +45,9 @@ Este módulo implementa el pilar 11: **Seguridad y Ética** (ver [recursos_conoc
     └── training_materials.md   # Material de capacitación
 ```
 
-## ⚠️ Principios de Seguridad Fundamentales
+## ⚠️ Principios de seguridad fundamentales
 
-### Reglas de Oro
+### Reglas de oro
 
 1. **NUNCA comprometer la seguridad por velocidad de desarrollo**
 2. **SIEMPRE tener E-stop físico accesible**
@@ -55,13 +55,13 @@ Este módulo implementa el pilar 11: **Seguridad y Ética** (ver [recursos_conoc
 4. **SIEMPRE probar en entorno controlado primero**
 5. **VERIFICAR lista de seguridad antes de CADA prueba**
 
-### Leyes de la Robótica (Asimov - Filosóficas)
+### Leyes de la robótica (Asimov - filosóficas)
 
 1. Un robot no puede dañar a un ser humano o, por inacción, permitir que un ser humano sufra daño
 2. Un robot debe obedecer las órdenes dadas por los seres humanos, excepto si estas órdenes entrasen en conflicto con la Primera Ley
 3. Un robot debe proteger su propia existencia en la medida en que esta protección no entre en conflicto con la Primera o la Segunda Ley
 
-## 🚨 Checklist de Seguridad Pre-Prueba
+## 🚨 Checklist de seguridad pre-prueba
 
 **⚠️ OBLIGATORIO antes de CADA sesión de pruebas**
 
@@ -137,9 +137,9 @@ Este módulo implementa el pilar 11: **Seguridad y Ética** (ver [recursos_conoc
   - [ ] Un sistema a la vez
   - [ ] Incrementar complejidad gradualmente
 
-## 📋 Procedimientos de Emergencia
+## 📋 Procedimientos de emergencia
 
-### Parada de Emergencia
+### Parada de emergencia
 
 **Si algo va mal**:
 1. **PRESIONAR E-STOP inmediatamente**
@@ -148,7 +148,7 @@ Este módulo implementa el pilar 11: **Seguridad y Ética** (ver [recursos_conoc
 4. Evaluar situación antes de reiniciar
 5. Registrar incidente
 
-### Incendio de Batería LiPo
+### Incendio de batería LiPo
 
 **⚠️ LiPo en llamas no pueden extinguirse con agua**
 
@@ -165,7 +165,7 @@ Este módulo implementa el pilar 11: **Seguridad y Ética** (ver [recursos_conoc
 - Cargar con supervisión
 - Desechar si está hinchada o dañada
 
-### Choque Eléctrico
+### Choque eléctrico
 
 1. **NO tocar a la persona** si aún está en contacto
 2. **Desconectar alimentación** (E-stop, desenchufar)
@@ -177,7 +177,7 @@ Este módulo implementa el pilar 11: **Seguridad y Ética** (ver [recursos_conoc
 - Aislar componentes de alto voltaje
 - Usar herramientas aisladas
 
-### Daño Físico (Robot golpea algo/alguien)
+### Daño físico (robot golpea algo/alguien)
 
 1. **E-stop inmediato**
 2. Evaluar daños (personas > robot)
@@ -185,9 +185,9 @@ Este módulo implementa el pilar 11: **Seguridad y Ética** (ver [recursos_conoc
 4. Análisis de causa raíz
 5. Implementar mitigaciones antes de continuar
 
-## 🔒 Seguridad en Software
+## 🔒 Seguridad en software
 
-### Límites de Seguridad
+### Límites de seguridad
 
 **Implementar en TODOS los controladores**:
 ```python
@@ -287,7 +287,7 @@ while True:
     time.sleep(0.01)  # 100 Hz
 ```
 
-### Validación de Inputs
+### Validación de inputs
 
 **Nunca confiar en inputs externos**:
 ```python
@@ -329,9 +329,9 @@ else:
     logger.warning(f"Comando rechazado: {message}")
 ```
 
-## 🤝 Ética en IA y Robótica
+## 🤝 Ética en IA y robótica
 
-### Principios Éticos del Proyecto
+### Principios éticos del proyecto
 
 1. **Transparencia**: El comportamiento del robot debe ser predecible y explicable
 2. **Equidad**: No discriminar por género, edad, etnia, etc.
@@ -339,7 +339,7 @@ else:
 4. **Responsabilidad**: Hacernos responsables de las acciones del robot
 5. **Beneficencia**: Diseñar para ayudar, no dañar
 
-### Privacidad de Datos
+### Privacidad de datos
 
 **Datos sensibles a proteger**:
 - Imágenes/video de caras → **Anonimizar o pedir consentimiento**
@@ -386,7 +386,7 @@ def collect_telemetry(user_id, robot_state):
     save_telemetry(telemetry)
 ```
 
-### Detección de Sesgo en Modelos
+### Detección de sesgo en modelos
 
 **Evaluar equidad**:
 ```python
@@ -424,7 +424,7 @@ def evaluate_model_fairness(model, test_data, sensitive_attributes=['age', 'gend
     return results
 ```
 
-## 📊 Análisis de Riesgos (FMEA)
+## 📊 Análisis de riesgos (FMEA)
 
 ### Ejemplo: Failure Mode and Effects Analysis
 
@@ -439,7 +439,7 @@ def evaluate_model_fairness(model, test_data, sensitive_attributes=['age', 'gend
 **RPN = Severidad × Probabilidad × Detección**
 Priorizar si RPN > 100
 
-## 📝 Reporte de Incidentes
+## 📝 Reporte de incidentes
 
 ### Template
 
@@ -482,28 +482,28 @@ Priorizar si RPN > 100
 - [ ] Actualizar documentación
 ```
 
-## 📚 Normativas y Estándares
+## 📚 Normativas y estándares
 
-### ISO/TS 15066: Robots Colaborativos
+### ISO/TS 15066: robots colaborativos
 - Límites de fuerza y presión en contacto humano-robot
 - Movimiento a velocidad segura (<250 mm/s en zona colaborativa)
 - Detección de colisión
 
-### ISO 13482: Robots de Cuidado Personal
+### ISO 13482: robots de cuidado personal
 - Requisitos de seguridad para robots que asisten personas
 - Mitigación de riesgos
 
-### ISO 10218: Robots Industriales
+### ISO 10218: robots industriales
 - Seguridad general de robots
 - Paradas de emergencia
 - Modos de operación
 
-### IEC 60950/62368: Seguridad Eléctrica
+### IEC 60950/62368: seguridad eléctrica
 - Protección contra choques eléctricos
 - Aislamiento
 - Materiales retardantes de llama
 
-## 🎓 Capacitación Obligatoria
+## 🎓 Capacitación obligatoria
 
 **Antes de operar el robot, cada persona debe**:
 1. Leer este documento completo
@@ -512,7 +512,7 @@ Priorizar si RPN > 100
 4. Entender límites del robot
 5. Firmar documento de conocimiento (si es proyecto institucional)
 
-## Próximos Pasos
+## Próximos pasos
 
 1. **Completar análisis FMEA** para todos los subsistemas
 2. **Implementar E-stop** físico y en software
